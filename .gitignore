@@ -36,5 +36,6 @@ test_reports.xml
 # Python egg metadata, regenerated from source files by setuptools.
 **/*.egg-info
 **/*.rdb
+**/.eggs
 
 **/_version.py
