@@ -30,9 +30,18 @@ class Delegate(object):
             if not self.config_server:
                 raise CSSTGenericException("enviroment variable CSST_DFS_CONFIG_SERVER is not set")
             try:
-                from  csst_dfs_api_cluster._version import version as cluster_version
+                from csst_dfs_api_cluster._version import version as cluster_version
             except ImportError:
                 raise CSSTFatalException("please install csst_dfs_api_cluster firstly.")
     
     def load(self, sub_module):
         return importlib.import_module(f"{API_MODULE_PREFIX}{self.mode}.{sub_module}")
+
+    @classmethod
+    def root_dir(self):
+        mode = os.getenv("CSST_DFS_API_MODE",'local')
+        if mode == MODE_LOCAL:
+            return os.getenv("CSST_LOCAL_FILE_ROOT")
+        if mode == MODE_CLUSTER:
+            from csst_dfs_api_cluster.common import config
+            return config.filePrefix

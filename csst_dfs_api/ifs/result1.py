@@ -1,24 +1,23 @@
 
 from ..common.delegate import Delegate
 
-class Result0Api(object):
+class Result1Api(object):
     """
-    Level 0 Operation Class of IFS
+    Level 1 Operation Class of IFS
     """
     def __init__(self, sub_system="ifs"):
         self.sub_system = sub_system
         self.module = Delegate().load(sub_module = "ifs")
-        self.stub = getattr(self.module, "Result0Api")()
+        self.stub = getattr(self.module, "Result1Api")()
         self.file_prefix = self.stub.root_dir
 
     def find(self, **kwargs):
         '''
         parameter kwargs:
-            raw_id = [int],
             file_name = [str],
             proc_type = [str]
 
-        return list of level 0 record
+        return list of level 1 record
         '''
         return self.stub.find(**kwargs)
 
@@ -45,12 +44,12 @@ class Result0Api(object):
         return self.stub.read(**kwargs)
 
     def write(self, **kwargs):
-        ''' copy a local level 0 file to file storage, and insert a record into database
+        ''' copy a local level 1 file to file storage, and insert a record into database
 
         parameter kwargs:
-            raw_id = [int],
             file_path = [str],
-            proc_type = [str]
+            proc_type = [str],
+            result0_ids = [list]
         '''  
         yield self.stub.write(**kwargs)
 
