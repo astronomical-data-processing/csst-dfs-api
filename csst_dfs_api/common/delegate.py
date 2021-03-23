@@ -36,12 +36,3 @@ class Delegate(object):
     
     def load(self, sub_module):
         return importlib.import_module(f"{API_MODULE_PREFIX}{self.mode}.{sub_module}")
-
-    @classmethod
-    def root_dir(self):
-        mode = os.getenv("CSST_DFS_API_MODE",'local')
-        if mode == MODE_LOCAL:
-            return os.getenv("CSST_LOCAL_FILE_ROOT")
-        if mode == MODE_CLUSTER:
-            from csst_dfs_api_cluster.common import config
-            return config.filePrefix

@@ -24,7 +24,7 @@ def setup_logging():
     ch.setFormatter(cfmt)
 
     # File handler
-    fh = logging.handlers.RotatingFileHandler('csst.log',
+    fh = logging.handlers.RotatingFileHandler('csst_dfs.log',
         maxBytes=10*1024*1024, backupCount=10)
     fh.setLevel(logging.INFO)
     fh.setFormatter(ffmt)
