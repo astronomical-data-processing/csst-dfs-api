@@ -51,5 +51,5 @@ class Result1Api(object):
             proc_type = [str],
             result0_ids = [list]
         '''  
-        yield self.stub.write(**kwargs)
+        return self.stub.write(**kwargs)
 

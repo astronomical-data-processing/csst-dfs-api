@@ -52,5 +52,5 @@ class Result0Api(object):
             file_path = [str],
             proc_type = [str]
         '''  
-        yield self.stub.write(**kwargs)
+        return self.stub.write(**kwargs)
 

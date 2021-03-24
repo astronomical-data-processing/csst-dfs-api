@@ -71,5 +71,5 @@ class FitsApi(object):
         parameter kwargs:
             file_path = [str]
         '''        
-        yield self.stub.write(**kwargs)
+        return self.stub.write(**kwargs)
 
