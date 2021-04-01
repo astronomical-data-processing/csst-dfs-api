@@ -23,9 +23,11 @@ class RSS(object):
         try:
             self.raw = self.fitsApi.find(file_name=file_name)
             self.raw = self.raw[0] if self.raw else None
-            log.info("find raw fits: %s,%s"%(self.raw["id"], self.raw["filename"]))
             if self.raw is None:
                 log.error('raw %s not found' %(file_name,))
+            else:
+                log.info("find raw fits: %s,%s"%(self.raw["id"], self.raw["filename"]))
+
         except Exception as e:
             log.error('raw %s not found' %(file_name,),e)
 
@@ -33,10 +35,11 @@ class RSS(object):
         try:
             self.bias = self.refFitsApi.find(file_name=file_name, ref_type=RefFitsApi.REF_FITS_BIAS)
             self.bias = self.bias[0] if self.bias else None
-            log.info("find ref bias fits: %s,%s"%(self.bias["id"], self.bias["filename"]))
-
+            
             if self.bias is None:
                 log.error('bias %s not found' %(file_name,))
+            else:
+                log.info("find ref bias fits: %s,%s"%(self.bias["id"], self.bias["filename"]))
         except Exception as e:
             log.error('bias %s not found' %(file_name,),e)
 
@@ -44,10 +47,11 @@ class RSS(object):
         try:
             self.flat = self.refFitsApi.find(file_name=file_name, ref_type=RefFitsApi.REF_FITS_FLAT)
             self.flat = self.flat[0] if self.flat else None
-            log.info("find ref flat fits: %s,%s"%(self.flat["id"], self.flat["filename"]))
-
+            
             if self.flat is None:
                 log.error('flat %s not found' %(file_name,))
+            else:
+                log.info("find ref flat fits: %s,%s"%(self.flat["id"], self.flat["filename"]))
         except Exception as e:
             log.error('flat %s not found' %(file_name,),e)
 
@@ -55,10 +59,11 @@ class RSS(object):
         try:
             self.arc = self.refFitsApi.find(file_name=file_name, ref_type=RefFitsApi.REF_FITS_ARC)
             self.arc = self.arc[0] if self.arc else None
-            log.info("find ref arc fits: %s,%s"%(self.arc["id"], self.arc["filename"]))
 
             if self.arc is None:
                 log.error('arc %s not found' %(file_name,))
+            else:
+                log.info("find ref arc fits: %s,%s"%(self.arc["id"], self.arc["filename"]))
         except Exception as e:
             log.error('arc %s not found' %(file_name,),e)
 
@@ -66,17 +71,30 @@ class RSS(object):
         try:
             self.sky = self.refFitsApi.find(file_name=file_name, ref_type=RefFitsApi.REF_FITS_SKY)
             self.sky = self.sky[0] if self.sky else None
-            log.info("find ref sky fits: %s,%s"%(self.sky["id"], self.sky["filename"]))
 
             if self.sky is None:
                 log.error('sky %s not found' %(file_name,))
+            else:
+                log.info("find ref sky fits: %s,%s"%(self.sky["id"], self.sky["filename"]))
         except Exception as e:
             log.error('sky %s not found' %(file_name,),e)
 
     def makecube(self, outfile):
 
-        hdul_raw = fits.open(os.path.join(self.root_dir, self.raw['file_path']))
+        if self.raw is None:
+            log.error('raw not found')
+            return
+        if self.arc is None:
+            log.error('arc not found')
+            return
+        if self.flat is None:
+            log.error('flat not found')
+            return
+        if self.sky is None:
+            log.error('sky not found')
+            return
 
+        hdul_raw = fits.open(os.path.join(self.root_dir, self.raw['file_path']))
         hdul_arc = fits.open(os.path.join(self.root_dir, self.arc['file_path']))
         hdul_flat = fits.open(os.path.join(self.root_dir, self.flat['file_path']))
         hdul_sky  = fits.open(os.path.join(self.root_dir, self.sky['file_path']))
