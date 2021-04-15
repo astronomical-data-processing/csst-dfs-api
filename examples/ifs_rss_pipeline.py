@@ -4,7 +4,7 @@ import pandas as pd
 import logging
 from astropy.io import fits
 
-from csst_dfs_api.common.logging import setup_logging
+from csst_dfs_commons.logging import setup_logging
 from csst_dfs_api.ifs import FitsApi, RefFitsApi, Result0Api, Result1Api
 
 setup_logging()
@@ -22,7 +22,10 @@ class RSS(object):
         
         try:
             self.raw = self.fitsApi.find(file_name=file_name)
-            self.raw = self.raw[0] if self.raw else None
+            
+            if self.raw.success():
+                self.raw = self.raw.data()[0] if len(self.raw.data())>0 else None
+
             if self.raw is None:
                 log.error('raw %s not found' %(file_name,))
             else:

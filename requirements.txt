@@ -1,1 +1,2 @@
-astropy
+astropy>=4.0
+git+https://github.com/astronomical-data-processing/csst-dfs-commons.git

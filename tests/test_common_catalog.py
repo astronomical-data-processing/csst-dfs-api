@@ -10,5 +10,5 @@ class CommonCatalogTestCase(unittest.TestCase):
         self.api = CatalogApi()
 
     def test_gaia3_query(self):
-        recs = self.api.gaia3_query(ra=56.234039029108935, dec=14.466534827703473, radius=4, min_mag=-1, max_mag=-1, obstime = -1, limit = 2)
-        print('find:', recs)
+        result = self.api.gaia3_query(ra=160, dec=-17, radius=0.2, min_mag=-1, max_mag=-1, obstime = -1, limit = 2)
+        print('return:', result)

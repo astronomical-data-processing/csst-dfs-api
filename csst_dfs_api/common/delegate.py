@@ -2,7 +2,8 @@ import os
 import importlib
 import logging
 
-from .errors import *
+
+from csst_dfs_commons.models.errors import *
 from .constants import *
 
 log = logging.getLogger('csst')
@@ -26,13 +27,19 @@ class Delegate(object):
                 raise CSSTFatalException("please install csst_dfs_api_local firstly.")
 
         if self.mode == MODE_CLUSTER:
-            self.config_server = os.getenv("CSST_DFS_CONFIG_SERVER")
-            if not self.config_server:
-                raise CSSTGenericException("enviroment variable CSST_DFS_CONFIG_SERVER is not set")
+            self.gateway = os.getenv("CSST_DFS_GATEWAY")
+            if not self.gateway:
+                raise CSSTGenericException("enviroment variable CSST_DFS_GATEWAY is not set")
             try:
                 from csst_dfs_api_cluster._version import version as cluster_version
             except ImportError:
                 raise CSSTFatalException("please install csst_dfs_api_cluster firstly.")
+
+            if not os.getenv("CSST_DFS_APP_ID"):
+                raise CSSTGenericException("enviroment variable CSST_DFS_APP_ID is not set")
+
+            if not os.getenv("CSST_DFS_APP_TOKEN"):
+                raise CSSTGenericException("enviroment variable CSST_DFS_APP_TOKEN is not set")
     
     def load(self, sub_module):
         return importlib.import_module(f"{API_MODULE_PREFIX}{self.mode}.{sub_module}")

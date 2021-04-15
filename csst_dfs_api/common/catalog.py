@@ -1,4 +1,5 @@
 from .delegate import Delegate
+from csst_dfs_commons.models import Result
 class CatalogApi(object):
     def __init__(self):
         self.module = Delegate().load(sub_module = "common")
@@ -15,16 +16,16 @@ class CatalogApi(object):
                 max_mag: maximal magnitude
                 obstime: seconds  
                 limit: limits returns the number of records
-            return: a dict as {success: true, totalCount: 100, records:[.....]}   
+            return: csst_dfs_common.models.Result
         '''
 
         if catalog_name == "gaia3":
             return self.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
         else:
-            raise Exception("%s catalog search not yet implemented" %(catalog_name, ))
+            return Result.error(message="%s catalog search not yet implemented" %(catalog_name, ))
 
     def gaia3_query(self, ra: float, dec: float, radius: float, min_mag: float,  max_mag: float,  obstime: int, limit: int):
-        ''' retrieval GAIA DR 3
+        ''' retrieval GAIA EDR 3
             args:
                 ra:  in deg
                 dec:  in deg
@@ -33,7 +34,9 @@ class CatalogApi(object):
                 max_mag: maximal magnitude
                 obstime: seconds  
                 limit: limits returns the number of records
-            return: a dict as {success: true, totalCount: 100, records:[.....]}
+            return: csst_dfs_common.models.Result
         ''' 
-        return self.stub.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)    
-
+        try:
+            return self.stub.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
+        except Exception as e:
+            return Result.error(message=repr(e))

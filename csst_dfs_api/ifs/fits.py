@@ -9,7 +9,6 @@ class FitsApi(object):
         self.sub_system = sub_system
         self.module = Delegate().load(sub_module = "ifs")
         self.stub = getattr(self.module, "FitsApi")()
-        self.file_prefix = self.stub.root_dir
         
     def find(self, **kwargs):
         '''
@@ -19,9 +18,10 @@ class FitsApi(object):
             exp_time = (start, end),
             ccd_num = [int],
             qc0_status = [int],
-            prc_status = [int]
+            prc_status = [int],
+            limit: limits returns the number of records
 
-        return list of raw records
+        return: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
