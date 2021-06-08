@@ -13,6 +13,7 @@ class ObservationApi(object):
         ''' retrieve exposure records from database
 
         parameter kwargs:
+            obs_id = [int]
             module_id: [str]
             obs_type: [str]
             obs_time : (start, end),
