@@ -12,7 +12,7 @@ class Level1DataApi(object):
     def find(self, **kwargs):
         ''' retrieve level1 records from database
 
-        parameter kwargs:
+        Args:
             raw_id: [int]
             data_type: [str]
             obs_type: [str]
@@ -21,18 +21,18 @@ class Level1DataApi(object):
             prc_status : [int],
             filename: [str]
             limit: limits returns the number of records,default 0:no-limit
-
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
 
-        parameter kwargs:
+        Args:
             id : [int] 
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.get(**kwargs)
 
@@ -40,29 +40,29 @@ class Level1DataApi(object):
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        parameter kwargs:
+        Args:
             id = [int],
             status = [int]
-        
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
         ''' update the status of QC0
         
-        parameter kwargs:
+        Args:
             id = [int],
             status = [int]
-
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''        
         return self.stub.update_qc1_status(**kwargs)    
 
     def write(self, **kwargs):
         ''' insert a level1 record into database
  
-        parameter kwargs:
+        Args:
             raw_id : [int]
             data_type : [str]
             cor_sci_id : [int]
@@ -75,8 +75,8 @@ class Level1DataApi(object):
             prc_status : [int]
             prc_time : [str]
             pipeline_id : [str]
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''          
         return self.stub.write(**kwargs)
 

@@ -12,7 +12,7 @@ class CalMergeApi(object):
     def find(self, **kwargs):
         ''' retrieve calibration merge records from database
 
-        parameter kwargs:
+        Args:
             detector_no: [str]
             ref_type: [str]
             obs_time: (start,end)
@@ -20,48 +20,46 @@ class CalMergeApi(object):
             prc_status : [int]
             file_name: [str]
             limit: limits returns the number of records,default 0:no-limit
-
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
 
-        parameter kwargs:
+        Args:
             id : [int] 
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.get(**kwargs)
 
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        parameter kwargs:
+        Args:
             id : [int],
             status : [int]
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
         ''' update the status of reduction
 
-        parameter kwargs:
+        AArgs:
             id : [int],
             status : [int]
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''        
         return self.stub.update_qc1_status(**kwargs)    
 
     def write(self, **kwargs):
         ''' insert a calibration merge record into database
- 
-        parameter kwargs:
-            id : [int]
+        Args:
             detector_no : [str]
             ref_type : [str]
             obs_time : [str]
@@ -71,7 +69,8 @@ class CalMergeApi(object):
             filename : [str]
             file_path : [str]
             level0_ids : [list]
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''  
         return self.stub.write(**kwargs)
 

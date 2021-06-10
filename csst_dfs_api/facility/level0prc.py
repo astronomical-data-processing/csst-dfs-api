@@ -12,31 +12,31 @@ class Level0PrcApi(object):
     def find(self, **kwargs):
         ''' retrieve level0 procedure records from database
 
-        parameter kwargs:
+        Args:
             level0_id: [int]
             pipeline_id: [str]
             prc_module: [str]
             prc_status : [int]
-
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        parameter kwargs:
+        Args:
             id : [int],
             status : [int]
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def write(self, **kwargs):
         ''' insert a level0 procedure record into database
  
-        parameter kwargs:
+        Args:
             level0_id : [int]
             pipeline_id : [str]
             prc_module : [str]
@@ -44,7 +44,8 @@ class Level0PrcApi(object):
             prc_status : [int]
             prc_time : [str]
             file_path : [str]
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''  
         return self.stub.write(**kwargs)
 

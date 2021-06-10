@@ -23,7 +23,7 @@ class RSS(object):
         try:
             self.raw = self.fitsApi.find(file_name=file_name)
             
-            if self.raw.success():
+            if self.raw.success:
                 self.raw = self.raw.data()[0] if len(self.raw.data())>0 else None
 
             if self.raw is None:

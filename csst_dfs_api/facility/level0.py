@@ -12,7 +12,7 @@ class Level0DataApi(object):
     def find(self, **kwargs):
         ''' retrieve level0 records from database
 
-        parameter kwargs:
+        Args:
             obs_id: [int]
             detector_no: [str]
             obs_type: [str]
@@ -21,43 +21,47 @@ class Level0DataApi(object):
             prc_status : [int],
             file_name: [str]
             limit: limits returns the number of records,default 0:no-limit
-
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
 
-        parameter kwargs:
+        Args:
             fits_id : [int] 
-
-        return csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''
         return self.stub.get(**kwargs)
 
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        parameter kwargs:
+        Args:
             fits_id : [int],
             status : [int]
+        Returns:
+            csst_dfs_common.models.Result            
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc0_status(self, **kwargs):
         ''' update the status of QC0
         
-        parameter kwargs:
+        Args:
             fits_id : [int],
             status : [int]
+        Returns:
+            csst_dfs_common.models.Result            
         '''        
         return self.stub.update_qc0_status(**kwargs)    
 
     def write(self, **kwargs):
         ''' insert a level0 data record into database
  
-        parameter kwargs:
+        Args:
             obs_id = [int]
             detector_no = [str]
             obs_type = [str]        
@@ -66,7 +70,8 @@ class Level0DataApi(object):
             detector_status_id = [int]
             filename = [str]
             file_path = [str]
-        return: csst_dfs_common.models.Result
+        Returns:
+            csst_dfs_common.models.Result
         '''  
         return self.stub.write(**kwargs)
 
