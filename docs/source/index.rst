@@ -28,32 +28,12 @@ This library can be installed with the following command:
    pip install -r requirements.txt
    python setup.py install 
 
-Documentation for the Code
-**************************
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-Common
+APIs
 =====================
-.. automodule:: csst_dfs_api.common
-   :members:
+.. toctree::
+   :maxdepth: 4
 
-Facility
-=======================
-.. automodule:: csst_dfs_api.facility
-   :members:
-
-MSC
-=======================
-.. automodule:: csst_dfs_api.msc
-   :members:
-
-IFS
-=======================
-.. automodule:: csst_dfs_api.ifs
-   :members:
-
+   rst/modules
 
 Indices and tables
 ==================
