@@ -11,55 +11,56 @@ class CalMergeApi(object):
         
     def find(self, **kwargs):
         ''' retrieve calibration merge records from database
-
-        Args:
-            detector_no: [str]
-            ref_type: [str]
-            obs_time: (start,end)
-            qc1_status : [int]
-            prc_status : [int]
-            file_name: [str]
+        
+        :param kwargs: Parameter dictionary, key items support:
+            detector_no: [str],
+            ref_type: [str],
+            obs_time: (start,end),
+            qc1_status : [int],
+            prc_status : [int],
+            file_name: [str],
             limit: limits returns the number of records,default 0:no-limit
-        Returns:
-            csst_dfs_common.models.Result
+
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
 
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             id : [int] 
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.get(**kwargs)
 
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             id : [int],
             status : [int]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
         ''' update the status of reduction
 
-        AArgs:
+        :param kwargs: Parameter dictionary, key items support:
             id : [int],
             status : [int]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''        
         return self.stub.update_qc1_status(**kwargs)    
 
     def write(self, **kwargs):
         ''' insert a calibration merge record into database
-        Args:
+
+        :param kwargs: Parameter dictionary, key items support:
             detector_no : [str]
             ref_type : [str]
             obs_time : [str]
@@ -69,8 +70,8 @@ class CalMergeApi(object):
             filename : [str]
             file_path : [str]
             level0_ids : [list]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''  
         return self.stub.write(**kwargs)
 

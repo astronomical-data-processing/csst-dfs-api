@@ -12,7 +12,7 @@ class Level1DataApi(object):
     def find(self, **kwargs):
         ''' retrieve level1 records from database
 
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             raw_id: [int]
             data_type: [str]
             obs_type: [str]
@@ -21,18 +21,18 @@ class Level1DataApi(object):
             prc_status : [int],
             filename: [str]
             limit: limits returns the number of records,default 0:no-limit
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
 
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             id : [int] 
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.get(**kwargs)
 
@@ -40,29 +40,29 @@ class Level1DataApi(object):
     def update_proc_status(self, **kwargs):
         ''' update the status of reduction
 
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             id = [int],
             status = [int]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
         ''' update the status of QC0
         
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             id = [int],
             status = [int]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''        
         return self.stub.update_qc1_status(**kwargs)    
 
     def write(self, **kwargs):
         ''' insert a level1 record into database
  
-        Args:
+        :param kwargs: Parameter dictionary, key items support:
             raw_id : [int]
             data_type : [str]
             cor_sci_id : [int]
@@ -75,8 +75,8 @@ class Level1DataApi(object):
             prc_status : [int]
             prc_time : [str]
             pipeline_id : [str]
-        Returns:
-            csst_dfs_common.models.Result
+        
+        :returns: csst_dfs_common.models.Result
         '''          
         return self.stub.write(**kwargs)
 
