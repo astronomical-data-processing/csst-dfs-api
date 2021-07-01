@@ -3,7 +3,7 @@ from ..common.delegate import Delegate
 
 class Level1DataApi(object):
     """
-    Level1 Data Operation Class
+    IFS Level1 Data Operation Class
     """
     def __init__(self):
         self.pymodule = Delegate().load(sub_module = "ifs")
@@ -13,9 +13,9 @@ class Level1DataApi(object):
         ''' retrieve level1 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            raw_id: [int]
-            data_type: [str]
-            obs_type: [str]
+            raw_id: [int],
+            data_type: [str],
+            obs_type: [str],
             create_time : (start, end),
             qc1_status : [int],
             prc_status : [int],
