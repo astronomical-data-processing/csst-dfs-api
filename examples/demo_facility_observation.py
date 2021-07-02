@@ -4,7 +4,7 @@ from csst_dfs_api.facility.observation import ObservationApi
 api = ObservationApi()
 
 #find 
-recs = api.find(module_id="MSC",limit = 0)
+recs = api.find(module_id="MSC",limit = 0, prc_status =-1)
 print('find:', recs)
 
 # get

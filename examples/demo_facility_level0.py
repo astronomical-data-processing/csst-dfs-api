@@ -3,7 +3,7 @@ from csst_dfs_api.facility.level0 import Level0DataApi
 api = Level0DataApi()
 
 # find
-recs = api.find(obs_id = 17, obs_type = 'sci', limit = 0)
+recs = api.find(obs_id = 17, obs_type = 'sci', limit = 0, prc_status = -1)
 print('find:', recs)
 
 # get
