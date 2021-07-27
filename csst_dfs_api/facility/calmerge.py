@@ -29,7 +29,8 @@ class CalMergeApi(object):
         '''  fetch a record from database
 
         :param kwargs: Parameter dictionary, key items support:
-            id : [int] 
+            id : [int],
+            cal_id : [str]
         
         :returns: csst_dfs_common.models.Result
         '''
@@ -40,6 +41,7 @@ class CalMergeApi(object):
 
         :param kwargs: Parameter dictionary, key items support:
             id : [int],
+            cal_id : [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result
@@ -51,6 +53,7 @@ class CalMergeApi(object):
 
         :param kwargs: Parameter dictionary, key items support:
             id : [int],
+            cal_id : [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result
@@ -61,15 +64,16 @@ class CalMergeApi(object):
         ''' insert a calibration merge record into database
 
         :param kwargs: Parameter dictionary, key items support:
-            detector_no : [str]
-            ref_type : [str]
-            obs_time : [str]
-            exp_time : [float]
-            prc_status : [int]
-            prc_time : [str]
-            filename : [str]
-            file_path : [str]
-            level0_ids : [list]
+            cal_id : [str],
+            detector_no : [str],
+            ref_type : [str],
+            obs_time : [str],
+            exp_time : [float],
+            prc_status : [int],
+            prc_time : [str],
+            filename : [str],
+            file_path : [str],
+            level0_ids : [list],
         
         :returns: csst_dfs_common.models.Result
         '''  

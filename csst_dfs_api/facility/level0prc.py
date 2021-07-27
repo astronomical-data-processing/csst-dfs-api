@@ -13,7 +13,7 @@ class Level0PrcApi(object):
         ''' retrieve level0 procedure records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            level0_id: [int]
+            level0_id: [str]
             pipeline_id: [str]
             prc_module: [str]
             prc_status : [int]
@@ -37,13 +37,13 @@ class Level0PrcApi(object):
         ''' insert a level0 procedure record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            level0_id : [int]
+            level0_id : [str]
             pipeline_id : [str]
             prc_module : [str]
-            params_id : [str]
+            params_file_path : [str]
             prc_status : [int]
             prc_time : [str]
-            file_path : [str]
+            result_file_path : [str]
         
         :returns: csst_dfs_common.models.Result
         '''  

@@ -28,7 +28,8 @@ class ObservationApi(object):
         '''  fetch a record from database
 
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [int] 
+            id = [int],
+            obs_id = [str]
         
         :returns: csst_dfs_common.models.Result
         '''
@@ -39,7 +40,8 @@ class ObservationApi(object):
         ''' update the status of reduction
 
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [int],
+            id = [int],
+            obs_id = [str],
             status = [int]
         
         :returns: csst_dfs_common.models.Result
@@ -50,7 +52,8 @@ class ObservationApi(object):
         ''' update the status of QC0
         
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [int],
+            id = [int],
+            obs_id = [str],
             status = [int]
         
         :returns: csst_dfs_common.models.Result
@@ -61,12 +64,13 @@ class ObservationApi(object):
         ''' insert a observational record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [int]
-            obs_time = [str]
-            exp_time = [float]
-            module_id = [str]
-            obs_type = [str]
-            facility_status_id = [int]
+            id = [int],
+            obs_id = [str],
+            obs_time = [str],
+            exp_time = [float],
+            module_id = [str],
+            obs_type = [str],
+            facility_status_id = [int],
             module_status_id = [int]
         
         :returns: csst_dfs_common.models.Result

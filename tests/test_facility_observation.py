@@ -14,23 +14,15 @@ class FacilityObservationTestCase(unittest.TestCase):
         print('find:', recs)
 
     def test_get(self):
-        rec = self.api.get(obs_id=17)
+        rec = self.api.get(id=17)
         print('get:', rec)
+        rec = self.api.get(obs_id='0000017')
+        print('get:', rec)        
 
     def test_update_proc_status(self):
-        rec = self.api.update_proc_status(obs_id = 17, status = 3, )
+        rec = self.api.update_proc_status(obs_id='0000017', status = 3, )
         print('update_proc_status:', rec)
 
     def test_update_qc0_status(self):
-        rec = self.api.update_qc0_status(obs_id = 17, status = 3, )
+        rec = self.api.update_qc0_status(obs_id='0000017', status = 3, )
         print('update_qc0_status:', rec)        
-
-    # def test_write(self):
-    #     rec = self.api.write(
-    #         obs_time = "2021-06-06 11:12:13",
-    #         exp_time = 150,
-    #         module_id = "MSC",
-    #         obs_type = "sci",
-    #         facility_status_id = 3,
-    #         module_status_id = 3)
-    #     print('write:', rec)        

@@ -17,7 +17,9 @@ class CalMergeApiTestCase(unittest.TestCase):
 
     def test_get(self):
         rec = self.api.get(id = 3)
-        print('get:', rec)
+        print('get by id:', rec)
+        rec = self.api.get(cal_id = '00002')
+        print('get by cal_id:', rec)
 
     def test_update_proc_status(self):
         rec = self.api.update_proc_status(id = 3, status = 1)
@@ -28,13 +30,15 @@ class CalMergeApiTestCase(unittest.TestCase):
         print('update_qc1_status:', rec)    
 
     def test_write(self):
-        rec = self.api.write(detector_no='CCD01', 
+        rec = self.api.write(
+            cal_id = '00002',
+            detector_no = '01', 
             ref_type = "bias",
             obs_time = "2021-06-04 11:12:13",
             exp_time = 150,
-            filename = "/opt/dddasd.params",
-            file_path = "/opt/dddasd.fits",
+            filename = "/opt/dddasd1.params",
+            file_path = "/opt/dddasd1.fits",
             prc_status = 3,
             prc_time = '2021-06-04 11:12:13',
-            level0_ids = [1,2,3,4])
+            level0_ids = ['1','2','3','4'])
         print('write:', rec)

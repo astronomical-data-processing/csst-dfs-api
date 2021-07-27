@@ -10,7 +10,8 @@ class MSCLevel1DataTestCase(unittest.TestCase):
         self.api = Level1DataApi()
 
     def test_find(self):
-        recs = self.api.find(raw_id=1,
+        recs = self.api.find(
+            level0_id='000001201',
             create_time = ("2021-06-01 11:12:13","2021-06-08 11:12:13"))
         print('find:', recs)
 
@@ -27,7 +28,8 @@ class MSCLevel1DataTestCase(unittest.TestCase):
         print('update_qc1_status:', rec)
 
     def test_write(self):
-        rec = self.api.write(raw_id=1, 
+        rec = self.api.write(
+            level0_id='000001201', 
             data_type = "sci",
             cor_sci_id = 1,
             prc_params = "/opt/dddasd.params",
@@ -36,7 +38,7 @@ class MSCLevel1DataTestCase(unittest.TestCase):
             bias_id = 3,
             prc_status = 3,
             prc_time = '2021-06-04 11:12:13',
-            filename = "dddasd",
+            filename = "dddasdfff",
             file_path = "/opt/dddasd.fits",
             pipeline_id = "P1")
         print('write:', rec)

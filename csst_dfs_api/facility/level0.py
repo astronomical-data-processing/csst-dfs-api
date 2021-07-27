@@ -13,7 +13,7 @@ class Level0DataApi(object):
         ''' retrieve level0 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            obs_id: [int]
+            obs_id: [str]
             detector_no: [str]
             obs_type: [str]
             obs_time : (start, end),
@@ -30,7 +30,8 @@ class Level0DataApi(object):
         '''  fetch a record from database
 
         :param kwargs: Parameter dictionary, key items support:
-            fits_id : [int] 
+            id : [int],
+            level0_id: [str]
         
         :returns: csst_dfs_common.models.Result
         '''
@@ -40,7 +41,8 @@ class Level0DataApi(object):
         ''' update the status of reduction
 
         :param kwargs: Parameter dictionary, key items support:
-            fits_id : [int],
+            id : [int],
+            level0_id: [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result            
@@ -51,7 +53,8 @@ class Level0DataApi(object):
         ''' update the status of QC0
         
         :param kwargs: Parameter dictionary, key items support:
-            fits_id : [int],
+            id : [int],
+            level0_id: [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result            
@@ -62,13 +65,13 @@ class Level0DataApi(object):
         ''' insert a level0 data record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [int]
-            detector_no = [str]
-            obs_type = [str]        
-            obs_time = [str]
-            exp_time = [int]
-            detector_status_id = [int]
-            filename = [str]
+            obs_id = [str],
+            detector_no = [str],
+            obs_type = [str],    
+            obs_time = [str],
+            exp_time = [int],
+            detector_status_id = [int],
+            filename = [str],
             file_path = [str]
         
         :returns: csst_dfs_common.models.Result

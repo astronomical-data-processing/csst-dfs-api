@@ -13,7 +13,7 @@ class Level1DataApi(object):
         ''' retrieve level1 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            raw_id: [int]
+            level0_id: [str]
             data_type: [str]
             obs_type: [str]
             create_time : (start, end),
@@ -63,7 +63,7 @@ class Level1DataApi(object):
         ''' insert a level1 record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            raw_id : [int]
+            level0_id: [str]
             data_type : [str]
             cor_sci_id : [int]
             prc_params : [str]
