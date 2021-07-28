@@ -24,6 +24,17 @@ class CalMergeApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
+    
+    def get_latest_by_l0(self, **kwargs):
+        ''' retrieve calibration merge records from database by level0 data
+        
+        :param kwargs: Parameter dictionary, key items support:
+            level0_id: [str],
+            ref_type: [str]
+
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.get_latest_by_l0(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
