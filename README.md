@@ -18,7 +18,7 @@ python setup.py install
 `csst-dfs-api` and relevant packages could be installed by running one of the following commands in your terminal.
 
 ```bash
-sh -c "$(curl -fsSL https://raw.fastgit.org/astronomical-data-processing/csst-dfs-api/master/tools/csst-dfs-api-install.sh)" - v0.0.2
+sh -c "$(curl -fsSL https://raw.fastgit.org/astronomical-data-processing/csst-dfs-api/master/tools/csst-dfs-api-install.sh)" - v0.0.4
 ```
 
 

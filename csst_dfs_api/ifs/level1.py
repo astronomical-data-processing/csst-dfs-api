@@ -15,7 +15,6 @@ class Level1DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str],
             data_type: [str],
-            obs_type: [str],
             create_time : (start, end),
             qc1_status : [int],
             prc_status : [int],
@@ -67,17 +66,12 @@ class Level1DataApi(object):
             data_type : [str]
             cor_sci_id : [int]
             prc_params : [str]
-            flat_id : [int]
-            dark_id : [int]
-            bias_id : [int]
-            lamp_id : [int]
-            arc_id : [int]
-            sky_id : [int]            
             filename : [str]
             file_path : [str]            
             prc_status : [int]
             prc_time : [str]
             pipeline_id : [str]
+            refs: [dict]
         
         :returns: csst_dfs_common.models.Result
         '''          

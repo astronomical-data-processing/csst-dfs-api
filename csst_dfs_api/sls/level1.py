@@ -6,7 +6,7 @@ class Level1DataApi(object):
     Level1 Data Operation Class
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
+        self.pymodule = Delegate().load(sub_module = "sls")
         self.stub = getattr(self.pymodule, "Level1DataApi")()
         
     def find(self, **kwargs):
@@ -64,7 +64,6 @@ class Level1DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
             data_type : [str]
-            cor_sci_id : [int]
             prc_params : [str]
             filename : [str]
             file_path : [str]            

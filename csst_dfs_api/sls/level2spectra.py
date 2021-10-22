@@ -1,20 +1,20 @@
 
 from ..common.delegate import Delegate
 
-class Level1DataApi(object):
+class Level2SpectraApi(object):
     """
     Level1 Data Operation Class
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
-        self.stub = getattr(self.pymodule, "Level1DataApi")()
+        self.pymodule = Delegate().load(sub_module = "sls")
+        self.stub = getattr(self.pymodule, "Level2SpectraApi")()
         
     def find(self, **kwargs):
-        ''' retrieve level1 records from database
+        ''' retrieve level2 spectra records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            level0_id: [str]
-            data_type: [str]
+            level1_id: [int]
+            spectra_id: [str]
             create_time : (start, end),
             qc1_status : [int],
             prc_status : [int],
@@ -48,7 +48,7 @@ class Level1DataApi(object):
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
-        ''' update the status of QC0
+        ''' update the status of QC1
         
         :param kwargs: Parameter dictionary, key items support:
             id = [int],
@@ -62,16 +62,14 @@ class Level1DataApi(object):
         ''' insert a level1 record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            level0_id: [str]
-            data_type : [str]
-            cor_sci_id : [int]
-            prc_params : [str]
+            level1_id: [int]
+            spectra_id : [str]
+            region : [str]
             filename : [str]
             file_path : [str]            
             prc_status : [int]
             prc_time : [str]
             pipeline_id : [str]
-            refs: [dict]
         
         :returns: csst_dfs_common.models.Result
         '''          

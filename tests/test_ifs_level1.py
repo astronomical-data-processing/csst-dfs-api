@@ -12,7 +12,7 @@ class IFSLevel1DataTestCase(unittest.TestCase):
     def test_find(self):
         recs = self.api.find(
             level0_id='000001201',
-            create_time = ("2021-06-01 11:12:13","2021-06-08 11:12:13"))
+            create_time = ("2021-10-01 11:12:13","2021-11-08 11:12:13"))
         print('find:', recs)
 
     def test_get(self):
@@ -33,15 +33,10 @@ class IFSLevel1DataTestCase(unittest.TestCase):
             data_type = "sci",
             cor_sci_id = 2,
             prc_params = "/opt/dddasd.params",
-            flat_id = 1,
-            dark_id = 2,
-            bias_id = 3,
-            lamp_id = 4,
-            arc_id = 5,
-            sky_id = 6,            
             prc_status = 3,
             prc_time = '2021-06-05 11:12:13',
-            filename = "dddasd",
-            file_path = "/opt/dddasd.fits",
-            pipeline_id = "P2")
+            filename = "MSC_MS_210525121500_100000001_09_raw",
+            file_path = "/opt/temp/csst/MSC_MS_210525121500_100000001_09_raw.fits",
+            pipeline_id = "P2",
+            refs = {'dark': 1, 'bias': 2, 'flat': 3, 'sky': 33 })
         print('write:', rec)
