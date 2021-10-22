@@ -40,3 +40,5 @@ test_reports.xml
 
 **/_version.py
 examples/test.py
+
+.hypothesis

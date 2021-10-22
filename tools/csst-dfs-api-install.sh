@@ -18,17 +18,17 @@ pip uninstall csst-dfs-commons -y
 pip uninstall csst-dfs-proto -y
 pip uninstall csst-dfs-api -y
 
-echo "Installing.....Version:$version"
-echo "=============================================="
-echo "1/5"
+echo "Installing CSST DFS API with Version:$version"
+echo "➡==============================================="
+echo " 🛰  1️⃣/5️⃣"
 pip install git+https://hub.fastgit.org/astronomical-data-processing/csst-dfs-commons.git$version
-echo "2/5"
+echo " 🛰  2️⃣/5️⃣"
 pip install git+https://hub.fastgit.org/astronomical-data-processing/csst-dfs-proto-py.git$version
-echo "3/5"
+echo " 🛰  3️⃣/5️⃣"
 pip install git+https://hub.fastgit.org/astronomical-data-processing/csst-dfs-api-local.git$version
-echo "4/5"
+echo " 🛰  4️⃣/5️⃣"
 pip install git+https://hub.fastgit.org/astronomical-data-processing/csst-dfs-api-cluster.git$version
-echo "5/5"
+echo " 🛰  5️⃣/5️⃣"
 pip install git+https://hub.fastgit.org/astronomical-data-processing/csst-dfs-api.git$version
-echo "=============================================="
-echo "Done!"
+echo "➡==============================================="
+echo "🇨🇳🇨🇳🇨🇳🚀🚀🚀Done!"
