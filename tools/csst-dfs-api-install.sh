@@ -2,15 +2,6 @@ echo "CSST-DFS-API Installer"
 echo "=============================================="
 
 version=""
-if [ $# == 0 ] ; then
-version=""
-elif [ $# == 1 ] ; then
-version="@$1"
-else
-echo "USAGE: $0 [version]"
-echo " e.g.: $0 v0.0.1"
-exit 1;
-fi
 
 pip uninstall csst-dfs-api-local -y
 pip uninstall csst-dfs-api-cluster -y
