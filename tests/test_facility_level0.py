@@ -17,7 +17,7 @@ class Level0DataTestCase(unittest.TestCase):
         rec = self.api.get(id = 100)
         print('get:', rec)
 
-        rec = self.api.get(level0_id = '000001102')
+        rec = self.api.get(level0_id = '1000000102')
         print('get:', rec)        
 
     def test_update_proc_status(self):

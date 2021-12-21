@@ -20,11 +20,11 @@ python setup.py install
 ```bash
 sh -c "$(curl -fsSL https://raw.fastgit.org/astronomical-data-processing/csst-dfs-api/master/tools/csst-dfs-api-install.sh)" - v0.0.4
 ```
-
-
 ## Configuration
 
 enviroment variables
 - CSST_DFS_API_MODE = local or cluster               # default: local
 - CSST_LOCAL_FILE_ROOT = [a local file directory]    # required if DFS_API_MODE = local,  default: /opt/temp/csst
 - CSST_DFS_GATEWAY = [gateway server's address]       # required if DFS_API_MODE = cluster, 
+
+
