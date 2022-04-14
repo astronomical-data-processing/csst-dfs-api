@@ -6,7 +6,7 @@ class Level0DataApi(object):
     Level 0 Data Operation API
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "facility")
+        self.pymodule = Delegate().load(sub_module = "msc")
         self.stub = getattr(self.pymodule, "Level0DataApi")()
         
     def find(self, **kwargs):

@@ -2,24 +2,23 @@ import os
 import unittest
 from astropy.io import fits
 
-from csst_dfs_api.facility.level0prc import Level0PrcApi
+from csst_dfs_api.ifs.level1prc import Level1PrcApi
 
-class Level0PrcTestCase(unittest.TestCase):
+class IFSLevel1PrcTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.api = Level0PrcApi()
+        self.api = Level1PrcApi()
 
     def test_find(self):
-        recs = self.api.find(level0_id='134')
+        recs = self.api.find(level1_id=1)
         print('find:', recs)
 
     def test_update_proc_status(self):
-        rec = self.api.update_proc_status(id = 8, status = 4)
+        rec = self.api.update_proc_status(id = 1, status = 4)
         print('update_proc_status:', rec)
 
     def test_write(self):
-        rec = self.api.write(
-            level0_id='134', 
+        rec = self.api.write(level1_id=1, 
             pipeline_id = "P1",
             prc_module = "QC0",
             params_file_path = "/opt/dddasd.params",

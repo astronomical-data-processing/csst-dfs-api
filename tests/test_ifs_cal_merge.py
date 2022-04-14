@@ -2,9 +2,9 @@ import os
 import unittest
 from astropy.io import fits
 
-from csst_dfs_api.facility.calmerge import CalMergeApi
+from csst_dfs_api.ifs.calmerge import CalMergeApi
 
-class CalMergeApiTestCase(unittest.TestCase):
+class IFSCalMergeApiTestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = CalMergeApi()

@@ -1,19 +1,19 @@
 
 from ..common.delegate import Delegate
 
-class Level1PrcApi(object):
+class Level0PrcApi(object):
     """
     Level 0 Data Operation API
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "facility")
-        self.stub = getattr(self.pymodule, "Level1PrcApi")()
+        self.pymodule = Delegate().load(sub_module = "sls")
+        self.stub = getattr(self.pymodule, "Level0PrcApi")()
         
     def find(self, **kwargs):
-        ''' retrieve level1 procedure records from database
+        ''' retrieve level0 procedure records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            level1_id: [int]
+            level0_id: [str]
             pipeline_id: [str]
             prc_module: [str]
             prc_status : [int]
@@ -34,10 +34,10 @@ class Level1PrcApi(object):
         return self.stub.update_proc_status(**kwargs)
 
     def write(self, **kwargs):
-        ''' insert a level1 procedure record into database
+        ''' insert a level0 procedure record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            level1_id : [int]
+            level0_id : [str]
             pipeline_id : [str]
             prc_module : [str]
             params_file_path : [str]
