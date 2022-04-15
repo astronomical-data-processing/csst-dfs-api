@@ -18,13 +18,13 @@ python setup.py install
 `csst-dfs-api` and relevant packages could be installed by running one of the following commands in your terminal.
 
 ```bash
-sh -c "$(curl -fsSL https://raw.fastgit.org/astronomical-data-processing/csst-dfs-api/master/tools/csst-dfs-api-install.sh)" - v0.0.4
+sh -c "$(curl -fsSL https://raw.fastgit.org/astronomical-data-processing/csst-dfs-api/master/tools/csst-dfs-api-install.sh)"
 ```
 ## Configuration
 
 enviroment variables
 - CSST_DFS_API_MODE = local or cluster               # default: local
 - CSST_LOCAL_FILE_ROOT = [a local file directory]    # required if DFS_API_MODE = local,  default: /opt/temp/csst
-- CSST_DFS_GATEWAY = [gateway server's address]       # required if DFS_API_MODE = cluster, 
+- CSST_DFS_GATEWAY = [gateway server's address]       # required if DFS_API_MODE = cluster
 
 
