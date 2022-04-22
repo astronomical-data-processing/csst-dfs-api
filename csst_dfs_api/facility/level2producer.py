@@ -62,7 +62,7 @@ class Level2ProducerApi(object):
         
         :returns: csst_dfs_common.models.Result
         '''
-        return self.stub.find_nexts(**kwargs)
+        return self.stub.find_start(**kwargs)
 
     def update(self, **kwargs):
         ''' update a Level2Producer
@@ -119,7 +119,7 @@ class Level2ProducerApi(object):
         
         :returns: csst_dfs_common.models.Result
         '''  
-        return self.stub.new_job(**kwargs)
+        return self.stub.update_job(**kwargs)
 
     def new_running(self, **kwargs):
         ''' insert a Level2ProducerRuningRecord data
