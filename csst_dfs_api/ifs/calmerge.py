@@ -6,7 +6,7 @@ class CalMergeApi(object):
     Level 0 Data Operation API
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "facility")
+        self.pymodule = Delegate().load(sub_module = "ifs")
         self.stub = getattr(self.pymodule, "CalMergeApi")()
         
     def find(self, **kwargs):

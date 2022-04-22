@@ -1,4 +1,4 @@
-from csst_dfs_api.facility.level0 import Level0DataApi
+from csst_dfs_api.facility.brick import Level0DataApi
 
 api = Level0DataApi()
 

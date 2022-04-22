@@ -14,6 +14,7 @@ Subpackages
    csst_dfs_api.ifs
    csst_dfs_api.mci
    csst_dfs_api.msc
+   csst_dfs_api.sls
 
 Module contents
 ---------------
