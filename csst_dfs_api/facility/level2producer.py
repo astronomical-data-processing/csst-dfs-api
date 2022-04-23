@@ -1,5 +1,6 @@
 
 from ..common.delegate import Delegate
+from csst_dfs_commons.models.errors import CSSTGenericException
 
 class Level2ProducerApi(object):
     """
@@ -178,3 +179,45 @@ class Level2ProducerApi(object):
         :returns: csst_dfs_common.models.Result
         '''  
         return self.stub.find_running(**kwargs)
+
+    def make_graph(self, start_producer_id, fig_path = None):
+        start_node = self.get(id = start_producer_id)
+        if not start_node.success:
+            raise CSSTGenericException("start node not found")
+
+        def get_next(pre_node, node_level_x, node_level_y):
+            the_nodes = self.find_nexts(id = pre_node.id)
+            graph_name_edges = [(pre_node.name, n.name) for n in the_nodes.data]
+            graph_id_edges = [(pre_node.id, n.id) for n in the_nodes.data]
+            pos = {pre_node.name: (node_level_x,node_level_y)}
+            for idx, node in enumerate(the_nodes.data):
+                sub_id_edges, sub_name_edges, sub_pos = get_next(node, node_level_x+1, idx-len(the_nodes.data)/2)
+                graph_id_edges.extend(sub_id_edges)
+                graph_name_edges.extend(sub_name_edges)
+                pos.update(sub_pos)
+            return graph_id_edges, graph_name_edges, pos
+
+        graph_id_edges, graph_name_edges, pos = get_next(start_node.data, 0, 0)
+        if fig_path:
+            import networkx as nx
+            from matplotlib import pyplot as plt
+            g1 = nx.DiGraph()
+            vertex_list = list(set([str(i) for e in graph_name_edges for i in e]))
+            g1.add_nodes_from(vertex_list)
+            g1.add_edges_from(graph_name_edges)
+            plt.xlim(-1, 8)                     
+            plt.ylim(-3, 3)             
+            plt.tight_layout()
+            nx.draw(
+                    g1,
+                    pos = pos,                    
+                    node_color = 'orange',
+                    edge_color = 'black',
+                    font_size =10, 
+                    node_size =300,
+                    with_labels=True
+                )
+
+            plt.savefig(fig_path, format="PNG")
+            plt.clf()
+        return graph_id_edges

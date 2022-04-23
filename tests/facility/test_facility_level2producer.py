@@ -103,4 +103,11 @@ class FacilityLevel2ProducerTestCase(unittest.TestCase):
             brick_id = 2,
             create_time = ('2022-04-22 10:13:13','2022-04-22 23:13:13')
         )
-        print('find_running:', recs)                        
+        print('find_running:', recs)
+
+    def test_make_graph(self):
+        graph_id_edges = self.api.make_graph(
+            start_producer_id = 2,
+            fig_path = 'graph.png'
+        )
+        print('graph_id_edges:', graph_id_edges)
