@@ -1,12 +1,9 @@
 import os
-import numpy as np
-import pandas as pd
 import logging
 from astropy.io import fits
 
 from csst_dfs_commons.logging import setup_logging
-from csst_dfs_api.facility import Level0DataApi, CalMergeApi
-from csst_dfs_api.ifs import Level1DataApi
+from csst_dfs_api.ifs import Level0DataApi, CalMergeApi, Level1DataApi
 setup_logging()
 
 log = logging.getLogger('csst')
