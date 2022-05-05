@@ -28,16 +28,19 @@ class CatalogApi(object):
             return self.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
         else:
             return Result.error(message="%s catalog search not yet implemented" %(catalog_name, ))
+
     def _fields_dtypes(self, rec):
         fields = tuple(rec.__dataclass_fields__.keys())
         dtypes = []
         for _, f in rec.__dataclass_fields__.items():
             if f.type == int:
                 dtypes.append('i8')
-            if f.type == float:
+            elif f.type == float:
                 dtypes.append('f8')        
-            if f.type == str:
-                dtypes.append('S2')        
+            elif f.type == str:
+                dtypes.append('S2')
+            else:
+                dtypes.append('S2')                
         dtypes = tuple(dtypes)
         return fields, dtypes
 
