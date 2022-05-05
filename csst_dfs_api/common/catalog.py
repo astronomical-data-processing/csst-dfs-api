@@ -1,5 +1,9 @@
+from astropy.table import QTable, Table, Column
+
 from .delegate import Delegate
 from csst_dfs_commons.models import Result
+
+
 class CatalogApi(object):
     def __init__(self):
         self.module = Delegate().load(sub_module = "common")
@@ -24,6 +28,27 @@ class CatalogApi(object):
             return self.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
         else:
             return Result.error(message="%s catalog search not yet implemented" %(catalog_name, ))
+    def _fields_dtypes(self, rec):
+        fields = tuple(rec.__dataclass_fields__.keys())
+        dtypes = []
+        for _, f in rec.__dataclass_fields__.items():
+            if f.type == int:
+                dtypes.append('i8')
+            if f.type == float:
+                dtypes.append('f8')        
+            if f.type == str:
+                dtypes.append('S2')        
+        dtypes = tuple(dtypes)
+        return fields, dtypes
+
+    def to_table(self, query_result):
+        if not query_result.success or not query_result.data:
+            return Table()
+        fields, dtypes = self._fields_dtypes(query_result.data[0])
+        t = Table(names = fields, dtype = dtypes)
+        for rec in query_result.data:
+            t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
+        return t
 
     def gaia3_query(self, ra: float, dec: float, radius: float, min_mag: float,  max_mag: float,  obstime: int, limit: int):
         """retrieval GAIA EDR 3

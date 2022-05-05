@@ -22,5 +22,8 @@ class CommonCatalogTestCase(unittest.TestCase):
             obstime = -1, 
             limit = 2
         )
+        dt = self.api.to_table(result)
+        df = dt.to_pandas()
+        print(df.head())
         print('used:', time.time()-t)
         print('return:', result)
