@@ -49,6 +49,9 @@ class CatalogApi(object):
             return Table()
         fields, dtypes = self._fields_dtypes(query_result.data[0])
         t = Table(names = fields, dtype = dtypes)
+        t.meta['comments'] = [str(query_result.data[0].__class__)]
+        t.meta['total'] = query_result['totalCount']
+
         for rec in query_result.data:
             t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
         return t
