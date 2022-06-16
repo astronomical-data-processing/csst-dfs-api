@@ -18,7 +18,7 @@ python setup.py install
 `csst-dfs-api` and relevant packages could be installed by running one of the following commands in your terminal.
 
 ```bash
-sh -c "$(curl -fsSL https://csst-tb.bao.ac.cn/code/csst-dfs/csst-dfs-api/-/raw/master/tools/csst-dfs-api-install.sh?inline=false)"
+sh -c "$(curl -fsSL https://csst-tb.bao.ac.cn/code/csst-dfs/csst-dfs-api/-/raw/master/tools/csst-dfs-api-install.sh)"
 ```
 
 ## Configuration
