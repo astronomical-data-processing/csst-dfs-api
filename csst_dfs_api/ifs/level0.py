@@ -13,13 +13,14 @@ class Level0DataApi(object):
         ''' retrieve level0 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            obs_id: [str]
-            detector_no: [str]
-            obs_type: [str]
+            obs_id: [str],
+            detector_no: [str],
+            obs_type: [str],
+            object_name: [str],
             obs_time : (start, end),
             qc0_status : [int],
             prc_status : [int],
-            file_name: [str]
+            file_name: [str],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result

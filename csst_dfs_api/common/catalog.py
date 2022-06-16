@@ -1,4 +1,4 @@
-from astropy.table import QTable, Table, Column
+from astropy.table import Table
 
 from .delegate import Delegate
 from csst_dfs_commons.models import Result
