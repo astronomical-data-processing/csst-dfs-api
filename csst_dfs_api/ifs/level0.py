@@ -21,6 +21,10 @@ class Level0DataApi(object):
             qc0_status : [int],
             prc_status : [int],
             file_name: [str],
+            version: [str],
+            ra: [float],
+            dec: [float],
+            radius: [float],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
