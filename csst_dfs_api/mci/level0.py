@@ -65,14 +65,9 @@ class Level0DataApi(object):
         ''' insert a level0 data record into database
  
         :param kwargs: Parameter dictionary, key items support:
-            obs_id = [str],
-            detector_no = [str],
-            obs_type = [str],    
-            obs_time = [str],
-            exp_time = [int],
-            detector_status_id = [int],
-            filename = [str],
-            file_path = [str]
+
+            file_path = [str],
+            copyfiles = [boolean]
         
         :returns: csst_dfs_common.models.Result
         '''  

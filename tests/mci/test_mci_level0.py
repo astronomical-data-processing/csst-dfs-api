@@ -30,13 +30,5 @@ class MCILevel0DataTestCase(unittest.TestCase):
 
     def test_write(self):
         rec = self.api.write(
-            level0_id = '000001101',
-            obs_id = '0000011',
-            detector_no = "01",
-            obs_type = "sci",            
-            obs_time = "2021-06-06 11:12:13",
-            exp_time = 150,
-            detector_status_id = 3,
-            filename = "MSC_00001234",
             file_path = "/opt/MSC_00001234.fits")
         print('write:', rec)  

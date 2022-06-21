@@ -9,34 +9,25 @@ class IFSLevel0DataTestCase(unittest.TestCase):
     def setUp(self):
         self.api = Level0DataApi()
 
-    def test_find(self):
-        recs = self.api.find(obs_id = '000009', obs_type = 'sci', limit = 0)
-        print('find:', recs)
+    # def test_find(self):
+    #     result = self.api.find(ra = 248, dec = 87, radius = 2, limit = 0, obs_type = "sky")
+    #     print('find:', result)
 
-    def test_get(self):
-        rec = self.api.get(id = 100)
-        print('get:', rec)
+    # def test_get(self):
+    #     result = self.api.get(id = 1)
+    #     print('get:', result.data)
 
-        rec = self.api.get(level0_id = '1000000102')
-        print('get:', rec)        
+    #     rec = self.api.get(level0_id = '300000145CCD231-c4')
+    #     print('get:', rec)        
 
-    def test_update_proc_status(self):
-        rec = self.api.update_proc_status(level0_id = '000001102', status = 6)
-        print('update_proc_status:', rec)
+    # def test_update_proc_status(self):
+    #     rec = self.api.update_proc_status(level0_id = '000001102', status = 6)
+    #     print('update_proc_status:', rec)
 
-    def test_update_qc0_status(self):
-        rec = self.api.update_qc0_status(level0_id = '000001102', status = 7)
-        print('update_qc0_status:', rec)
+    # def test_update_qc0_status(self):
+    #     rec = self.api.update_qc0_status(level0_id = '000001102', status = 7)
+    #     print('update_qc0_status:', rec)
 
     def test_write(self):
-        rec = self.api.write(
-            level0_id = '000001101',
-            obs_id = '0000011',
-            detector_no = "01",
-            obs_type = "sci",            
-            obs_time = "2021-06-06 11:12:13",
-            exp_time = 150,
-            detector_status_id = 3,
-            filename = "MSC_00001234",
-            file_path = "/opt/MSC_00001234.fits")
+        rec = self.api.write(file_path = "/Users/wsl/temp/csst/ifs_data/sky_Data/CSST_IFS_B_sky_20211225001425_20211225001925_300000013_X_L0_VER_I4203.fits")
         print('write:', rec)  
