@@ -11,6 +11,7 @@ class FacilityLevel2ProducerTestCase(unittest.TestCase):
         rec = self.api.register(name='Test2', 
             gitlink='http://github.com/xxx/xxx',
             paramfiles='/opt/csst/param1.ini',
+            image='centos:7',
             priority = 3,
             pre_producers=[1,2] )
         print('register:', rec)
@@ -36,6 +37,7 @@ class FacilityLevel2ProducerTestCase(unittest.TestCase):
             id=2,
             name = "start2",
             gitlink = "http://github.com/xxx/xxx",
+            image = "centos:8",
             paramfiles='/opt/csst/param1.ini',
             priority = 3,
             pre_producers=[1,3]
@@ -50,7 +52,8 @@ class FacilityLevel2ProducerTestCase(unittest.TestCase):
 
     def test_new_job(self):
         recs = self.api.new_job(
-            dag = "start2-1-1-"
+            name = "start2-1-1-",
+            dag = "{'start':'1'}"
         )
         print('new_job:', recs)
 
@@ -108,6 +111,6 @@ class FacilityLevel2ProducerTestCase(unittest.TestCase):
     def test_make_graph(self):
         graph_id_edges = self.api.make_graph(
             start_producer_id = 2,
-            fig_path = 'graph.png'
+            fig_path = 'graph11.png'
         )
         print('graph_id_edges:', graph_id_edges)

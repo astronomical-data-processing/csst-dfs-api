@@ -1,4 +1,4 @@
-
+import random
 from ..common.delegate import Delegate
 from csst_dfs_commons.models.errors import CSSTGenericException
 
@@ -94,6 +94,7 @@ class Level2ProducerApi(object):
         ''' new a Level2Producer Job
  
         :param kwargs: Parameter dictionary, key items support:
+            name = [str]
             dag = [str]
         
         :returns: csst_dfs_common.models.Result
@@ -115,6 +116,7 @@ class Level2ProducerApi(object):
  
         :param kwargs: Parameter dictionary, key items support:
             id = [int]
+            name = [str]
             dag = [str]
             status = [int]
         
@@ -191,7 +193,8 @@ class Level2ProducerApi(object):
             graph_id_edges = [(pre_node.id, n.id) for n in the_nodes.data]
             pos = {pre_node.name: (node_level_x,node_level_y)}
             for idx, node in enumerate(the_nodes.data):
-                sub_id_edges, sub_name_edges, sub_pos = get_next(node, node_level_x+1, idx-len(the_nodes.data)/2)
+                sub_id_edges, sub_name_edges, sub_pos = get_next(node, node_level_x+1, random.randint(-3,3))
+
                 graph_id_edges.extend(sub_id_edges)
                 graph_name_edges.extend(sub_name_edges)
                 pos.update(sub_pos)
@@ -206,15 +209,15 @@ class Level2ProducerApi(object):
             g1.add_nodes_from(vertex_list)
             g1.add_edges_from(graph_name_edges)
             plt.xlim(-1, 8)                     
-            plt.ylim(-3, 3)             
+            plt.ylim(-4, 4)             
             plt.tight_layout()
             nx.draw(
                     g1,
                     pos = pos,                    
                     node_color = 'orange',
                     edge_color = 'black',
-                    font_size =10, 
-                    node_size =300,
+                    font_size =12, 
+                    node_size =360,
                     with_labels=True
                 )
 
