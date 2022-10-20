@@ -22,8 +22,8 @@ class Level0DataApi(object):
             prc_status : [int],
             file_name: [str],
             version: [str],
-            ra: [float],
-            dec: [float],
+            ra_obj: [float],
+            dec_obj: [float],
             radius: [float],
             limit: limits returns the number of records,default 0:no-limit
         

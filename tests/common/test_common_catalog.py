@@ -15,15 +15,15 @@ class CommonCatalogTestCase(unittest.TestCase):
         result = self.api.catalog_query(
             ra=128, # 15415
             dec=-40, 
-            radius=0.5, 
+            radius=2, 
             catalog_name='gaia3', 
             min_mag=-1, 
             max_mag=-1, 
             obstime = -1, 
-            limit = 2
+            limit = -1
         )
-        dt = self.api.to_table(result)
-        df = dt.to_pandas()
-        print(df.head())
+        # dt = self.api.to_table(result)
+        # df = dt.to_pandas()
+        # print(df.head())
         print('used:', time.time()-t)
-        print('return:', result)
+        print('return:', result['totalCount'])
