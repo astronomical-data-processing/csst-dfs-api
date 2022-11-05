@@ -1,4 +1,5 @@
 from datetime import datetime
+from astropy.table import Table
 import time
 
 def format_datetime(dt):
@@ -61,3 +62,32 @@ def revoke(cmd, desc=''):
                 return self.func(*args, **kw)
         return Wrapper(cmd, desc, func)
     return decorator
+
+def fields_dtypes(rec):
+    fields = tuple(rec.__dataclass_fields__.keys())
+    dtypes = []
+    for _, f in rec.__dataclass_fields__.items():
+        if f.type == int:
+            dtypes.append('i8')
+        elif f.type == float:
+            dtypes.append('f8')        
+        elif f.type == str:
+            dtypes.append('S2')
+        elif f.type == list:
+            dtypes.append('(12,)f8')       
+        else:
+            dtypes.append('S2')                
+    dtypes = tuple(dtypes)
+    return fields, dtypes
+
+def to_table(query_result):
+    if not query_result.success or not query_result.data:
+        return Table()
+    fields, dtypes = fields_dtypes(query_result.data[0])
+    t = Table(names = fields, dtype = dtypes)
+    t.meta['comments'] = [str(query_result.data[0].__class__)]
+    t.meta['total'] = query_result['totalCount']
+
+    for rec in query_result.data:
+        t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
+    return t

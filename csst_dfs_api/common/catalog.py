@@ -2,7 +2,7 @@ from astropy.table import Table
 
 from .delegate import Delegate
 from csst_dfs_commons.models import Result
-
+from csst_dfs_api.common.utils import to_table as to_fits_table
 
 class CatalogApi(object):
     def __init__(self):
@@ -29,32 +29,8 @@ class CatalogApi(object):
         else:
             return Result.error(message="%s catalog search not yet implemented" %(catalog_name, ))
 
-    def _fields_dtypes(self, rec):
-        fields = tuple(rec.__dataclass_fields__.keys())
-        dtypes = []
-        for _, f in rec.__dataclass_fields__.items():
-            if f.type == int:
-                dtypes.append('i8')
-            elif f.type == float:
-                dtypes.append('f8')        
-            elif f.type == str:
-                dtypes.append('S2')
-            else:
-                dtypes.append('S2')                
-        dtypes = tuple(dtypes)
-        return fields, dtypes
-
     def to_table(self, query_result):
-        if not query_result.success or not query_result.data:
-            return Table()
-        fields, dtypes = self._fields_dtypes(query_result.data[0])
-        t = Table(names = fields, dtype = dtypes)
-        t.meta['comments'] = [str(query_result.data[0].__class__)]
-        t.meta['total'] = query_result['totalCount']
-
-        for rec in query_result.data:
-            t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
-        return t
+        return to_fits_table(query_result)
 
     def gaia3_query(self, ra: float, dec: float, radius: float, min_mag: float,  max_mag: float,  obstime: int, limit: int):
         """retrieval GAIA EDR 3

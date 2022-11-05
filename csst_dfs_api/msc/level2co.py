@@ -1,20 +1,18 @@
 
 from ..common.delegate import Delegate
-from astropy.table import Table
 
-class Level2DataApi(object):
+class Level2CoApi(object):
     """
-    Level2 Data Operation Class
+    Level2 Merge Catalog Operation Class
     """
     def __init__(self):
         self.pymodule = Delegate().load(sub_module = "msc")
-        self.stub = getattr(self.pymodule, "Level2DataApi")()
+        self.stub = getattr(self.pymodule, "Level2CoApi")()
         
     def find(self, **kwargs):
-        ''' retrieve level2 records from database
+        ''' retrieve level2 Merge Catalog records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            level1_id: [int]
             data_type: [str]
             create_time : (start, end),
             qc2_status : [int],
@@ -27,7 +25,7 @@ class Level2DataApi(object):
         return self.stub.find(**kwargs)
 
     def catalog_query(self, **kwargs):
-        ''' retrieve level2 catalog
+        ''' retrieve level2 Merge catalog
 
         :param kwargs: Parameter dictionary, key items support:
             obs_id: [str]
@@ -75,10 +73,9 @@ class Level2DataApi(object):
         return self.stub.update_qc2_status(**kwargs)    
 
     def write(self, **kwargs):
-        ''' insert a level2 record into database
+        ''' insert a level2 record after merge into database
  
         :param kwargs: Parameter dictionary, key items support:
-            level1_id: [int]
             data_type : [str]
             filename : [str]
             file_path : [str]            
