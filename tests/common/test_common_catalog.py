@@ -13,15 +13,16 @@ class CommonCatalogTestCase(unittest.TestCase):
     def test_catalog_query(self):
         t= time.time()
         result = self.api.catalog_query(
-            ra=193.2990269, # 15415
-            dec=0.038331050065405756, 
-            radius=2, 
+            ra=193, # 15415
+            dec=26, 
+            radius=0.1, 
             catalog_name='gaia3', 
             min_mag=-1, 
             max_mag=-1, 
             obstime = -1, 
-            limit = -1
+            limit = 1
         )
+        print(result)
         # dt = self.api.to_table(result)
         # df = dt.to_pandas()
         # print(df.head())

@@ -14,6 +14,7 @@ class Level2DataApi(object):
         ''' retrieve level2 records from database
 
         :param kwargs: Parameter dictionary, key items support:
+            level0_id: [str]
             level1_id: [int]
             data_type: [str]
             create_time : (start, end),

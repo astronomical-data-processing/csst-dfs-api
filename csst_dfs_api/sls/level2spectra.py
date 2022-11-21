@@ -13,6 +13,7 @@ class Level2SpectraApi(object):
         ''' retrieve level2 spectra records from database
 
         :param kwargs: Parameter dictionary, key items support:
+            level0_id: [str]
             level1_id: [int]
             spectra_id: [str]
             create_time : (start, end),
@@ -62,6 +63,7 @@ class Level2SpectraApi(object):
         ''' insert a level1 record into database
  
         :param kwargs: Parameter dictionary, key items support:
+            level0_id: [str]
             level1_id: [int]
             spectra_id : [str]
             region : [str]
