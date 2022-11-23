@@ -33,14 +33,30 @@ class Level2DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             obs_id: [str]
             detector_no: [str]
-            min_mag: [float]
-            max_mag: [float]
-            obs_time: (start, end),
+            ra:  [float] in deg
+            dec: [float] in deg
+            radius:  [float] in deg
+            obs_time: (start, end)
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.catalog_query(**kwargs)        
+
+    def catalog_query_file(self, **kwargs):
+        ''' retrieve level2 catalog, return Level2Record
+
+        :param kwargs: Parameter dictionary, key items support:
+            obs_id: [str]
+            detector_no: [str]
+            ra:  [float] in deg
+            dec: [float] in deg
+            radius:  [float] in deg
+            obs_time: (start, end)
+        
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.catalog_query_file(**kwargs)  
 
     def get(self, **kwargs):
         '''  fetch a record from database
