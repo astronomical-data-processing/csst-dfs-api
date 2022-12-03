@@ -1,6 +1,4 @@
-import os
 import unittest
-from astropy.io import fits
 
 from csst_dfs_api.ifs.level1prc import Level1PrcApi
 

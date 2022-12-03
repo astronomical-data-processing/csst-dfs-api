@@ -14,6 +14,10 @@ class SLSResult1TestCase(unittest.TestCase):
             )
         print('find:', recs)
 
+    def test_find_by_prc_status(self):
+        recs = self.api.find_by_prc_status()
+        print('test_find_by_prc_status:', recs)
+
     def test_get(self):
         rec = self.api.get(id = 1)
         print('get:', rec)

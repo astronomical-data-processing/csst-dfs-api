@@ -36,7 +36,7 @@ class MSCLevel1DataTestCase(unittest.TestCase):
             prc_status = 3,
             prc_time = '2021-10-22 11:12:13',
             filename = "MSC_MS_210525121500_100000001_09_raw",
-            file_path = "/opt/temp/csst/MSC_MS_210525121500_100000001_09_raw.fits",
+            file_path = "/opt/temp/csst/msc/level1/MSC_210304093000_0000000_06_img.fits.fz",
             pipeline_id = "P1",
             refs = {'dark': 1, 'bias': 2, 'flat': 3 })
         print('write:', rec)

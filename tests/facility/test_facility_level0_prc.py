@@ -1,10 +1,8 @@
-import os
 import unittest
-from astropy.io import fits
 
-from csst_dfs_api.sls.level0prc import Level0PrcApi
+from csst_dfs_api.facility.level0prc import Level0PrcApi
 
-class SLSLevel0PrcTestCase(unittest.TestCase):
+class Level0PrcTestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = Level0PrcApi()

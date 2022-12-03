@@ -6,7 +6,7 @@ class Level0DataApi(object):
     Level 0 Data Operation API
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
+        self.pymodule = Delegate().load(sub_module = "facility")
         self.stub = getattr(self.pymodule, "Level0DataApi")()
         
     def find(self, **kwargs):
@@ -23,7 +23,8 @@ class Level0DataApi(object):
             ra_obj: [float],
             dec_obj: [float],
             radius: [float],
-                        
+            object_name: [str],
+            version: [str],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
@@ -36,6 +37,7 @@ class Level0DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             id : [int],
             level0_id: [str]
+            obs_type: [str]
         
         :returns: csst_dfs_common.models.Result
         '''
@@ -47,6 +49,7 @@ class Level0DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             id : [int],
             level0_id: [str],
+            obs_type: [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result            
@@ -59,6 +62,7 @@ class Level0DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             id : [int],
             level0_id: [str],
+            obs_type: [str],
             status : [int]
         
         :returns: csst_dfs_common.models.Result            

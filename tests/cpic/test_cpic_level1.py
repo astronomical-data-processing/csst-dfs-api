@@ -2,7 +2,7 @@ import unittest
 
 from csst_dfs_api.cpic import Level1DataApi
 
-class CPICResult1TestCase(unittest.TestCase):
+class CPICLevel1TestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = Level1DataApi()
@@ -28,7 +28,7 @@ class CPICResult1TestCase(unittest.TestCase):
 
     def test_write(self):
         rec = self.api.write(
-            level0_id='0000223', 
+            level0_id='400001223', 
             data_type = "sci",
             prc_params = "/opt/dddasd.params",
             prc_status = 3,

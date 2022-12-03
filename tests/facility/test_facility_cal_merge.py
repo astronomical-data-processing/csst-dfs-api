@@ -1,8 +1,6 @@
-import os
 import unittest
-from astropy.io import fits
 
-from csst_dfs_api.msc.calmerge import CalMergeApi
+from csst_dfs_api.facility.calmerge import CalMergeApi
 
 class MSCCalMergeApiTestCase(unittest.TestCase):
 
@@ -10,7 +8,7 @@ class MSCCalMergeApiTestCase(unittest.TestCase):
         self.api = CalMergeApi()
 
     def test_find(self):
-        recs = self.api.find(detector_no='CCD01',
+        recs = self.api.find(detector_no='01',
             ref_type = "bias",
             obs_time = ("2021-06-01 11:12:13","2021-06-08 11:12:13"))
         print('find:', recs)

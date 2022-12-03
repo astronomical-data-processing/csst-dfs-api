@@ -25,6 +25,17 @@ class Level1DataApi(object):
         '''
         return self.stub.find(**kwargs)
 
+    def find_by_prc_status(self, **kwargs):
+        ''' retrieve level1 records from database
+
+        :param kwargs: Parameter dictionary, key items support:
+            prc_status : [int],
+            limit: limits returns the number of records,default 0:no-limit
+        
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.find_by_prc_status(**kwargs)
+
     def get(self, **kwargs):
         '''  fetch a record from database
 
