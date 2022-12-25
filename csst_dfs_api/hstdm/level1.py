@@ -3,18 +3,18 @@ from ..common.delegate import Delegate
 
 class Level1DataApi(object):
     """
-    Level1 Data Operation Class
+    IFS Level1 Data Operation Class
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
+        self.pymodule = Delegate().load(sub_module = "hstdm")
         self.stub = getattr(self.pymodule, "Level1DataApi")()
         
     def find(self, **kwargs):
         ''' retrieve level1 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            level0_id: [str]
-            data_type: [str]
+            level0_id: [str],
+            data_type: [str],
             create_time : (start, end),
             qc1_status : [int],
             prc_status : [int],
@@ -24,15 +24,6 @@ class Level1DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
-
-    def find_by_brick_ids(self, **kwargs):
-        ''' retrieve level1 records by brick_ids like [1,2,3,4]
-
-        :param kwargs: Parameter dictionary, key items support:
-            brick_ids: [list]
-        :returns: csst_dfs_common.models.Result
-        '''
-        return self.stub.find_by_brick_ids(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
@@ -69,9 +60,9 @@ class Level1DataApi(object):
 
     def write(self, **kwargs):
         ''' insert a level1 record into database
- 
+
         :param kwargs: Parameter dictionary, key items support:
-            level0_id: [str]
+            level0_id : [str]
             data_type : [str]
             cor_sci_id : [int]
             prc_params : [str]

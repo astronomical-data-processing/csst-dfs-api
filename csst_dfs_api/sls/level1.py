@@ -24,6 +24,15 @@ class Level1DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
+        
+    def find_by_brick_ids(self, **kwargs):
+        ''' retrieve level1 records by brick_ids like [1,2,3,4]
+
+        :param kwargs: Parameter dictionary, key items support:
+            brick_ids: [list]
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.find_by_brick_ids(**kwargs)
 
     def find_by_prc_status(self, **kwargs):
         ''' retrieve level1 records from database

@@ -31,6 +31,15 @@ class Level0DataApi(object):
         '''
         return self.stub.find(**kwargs)
 
+    def find_by_brick_ids(self, **kwargs):
+        ''' retrieve level0 records by brick_ids like [1,2,3,4]
+
+        :param kwargs: Parameter dictionary, key items support:
+            brick_ids: [list]
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.find_by_brick_ids(**kwargs)
+        
     def get(self, **kwargs):
         '''  fetch a record from database
 

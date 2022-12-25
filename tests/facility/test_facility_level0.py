@@ -11,6 +11,10 @@ class Level0DataTestCase(unittest.TestCase):
         recs = self.api.find(obs_id = '0000011', obs_type = 'sci', limit = 0)
         print('find:', recs)
 
+    def test_find_by_brick_ids(self):
+        recs = self.api.find_by_brick_ids(brick_ids = [1,2,3,4])
+        print('find:', recs)
+
     def test_get(self):
         rec = self.api.get(id = 3)
         print('get:', rec)
