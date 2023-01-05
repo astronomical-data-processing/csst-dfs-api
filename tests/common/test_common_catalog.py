@@ -16,6 +16,7 @@ class CommonCatalogTestCase(unittest.TestCase):
             ra=90, 
             dec=24.5, 
             radius=1, 
+            columns = ('ref_epoch','ra','ra_error','dec','dec_error','parallax','parallax_error','pmra','pmra_error','pmdec','pmdec_error','phot_g_mean_mag','source_id'),            
             catalog_name='gaia3', 
             min_mag=-1, 
             max_mag=-1, 
@@ -23,7 +24,8 @@ class CommonCatalogTestCase(unittest.TestCase):
             limit = 0
         )
         # print(result)
-        # dt = self.api.to_table(result)
+        dt = self.api.to_table(result)
+        dt.pprint()
         # df = dt.to_pandas()
         # print(df.head())
         print('used:', time.time()-t)
