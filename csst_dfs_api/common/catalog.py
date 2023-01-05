@@ -26,7 +26,7 @@ class CatalogApi(object):
         '''
 
         if catalog_name == "gaia3":
-            return self.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
+            return self.gaia3_query(ra, dec, radius, columns, min_mag, max_mag, obstime, limit)
         else:
             return Result.error(message="%s catalog search not yet implemented" %(catalog_name, ))
 
