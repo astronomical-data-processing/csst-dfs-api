@@ -9,13 +9,14 @@ class CatalogApi(object):
         self.module = Delegate().load(sub_module = "common")
         self.stub = getattr(self.module, "CatalogApi")()
     
-    def catalog_query(self, ra: float, dec: float, radius: float, catalog_name: str, min_mag: float,  max_mag: float,  obstime: int, limit: int):
+    def catalog_query(self, ra: float, dec: float, radius: float, catalog_name: str, columns: tuple, min_mag: float,  max_mag: float,  obstime: int, limit: int):
         ''' retrieval catalog
 
         :param ra: in deg
         :param dec:  in deg
         :param radius:  in deg
         :param catalog_name: one of ['gaia3','','']
+        :param columns: tuple of str, like ('ra','dec','phot_g_mean_mag')
         :param min_mag: minimal magnitude
         :param max_mag: maximal magnitude
         :param obstime: seconds  
@@ -32,12 +33,13 @@ class CatalogApi(object):
     def to_table(self, query_result):
         return to_fits_table(query_result)
 
-    def gaia3_query(self, ra: float, dec: float, radius: float, min_mag: float,  max_mag: float,  obstime: int, limit: int):
+    def gaia3_query(self, ra: float, dec: float, radius: float, columns: tuple,min_mag: float,  max_mag: float,  obstime: int, limit: int):
         """retrieval GAIA EDR 3
         
         :param ra: in deg
         :param dec:  in deg
         :param radius:  in deg
+        :param columns: tuple of str, like ('ra','dec','phot_g_mean_mag')
         :param min_mag: minimal magnitude
         :param max_mag: maximal magnitude
         :param obstime: seconds  
@@ -46,6 +48,8 @@ class CatalogApi(object):
         :returns: csst_dfs_common.models.Result
         """ 
         try:
-            return self.stub.gaia3_query(ra, dec, radius, min_mag, max_mag, obstime, limit)
+            if not columns:
+                raise Exception("columns is empty")
+            return self.stub.gaia3_query(ra, dec, radius, columns, min_mag, max_mag, obstime, limit)
         except Exception as e:
             return Result.error(message=repr(e))

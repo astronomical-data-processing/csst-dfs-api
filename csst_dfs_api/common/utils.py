@@ -80,7 +80,36 @@ def fields_dtypes(rec):
     dtypes = tuple(dtypes)
     return fields, dtypes
 
+def tuple_fields_dtypes(rec: tuple):
+    dtypes = []
+    for _, f in rec:
+        if f.type == int:
+            dtypes.append('i8')
+        elif f.type == float:
+            dtypes.append('f8')        
+        elif f.type == str:
+            dtypes.append('S2')
+        elif f.type == list:
+            dtypes.append('(12,)f8')       
+        else:
+            dtypes.append('S2')                
+    dtypes = tuple(dtypes)
+    return dtypes
+
 def to_table(query_result):
+    if not query_result.success or not query_result.data:
+        return Table()
+    fields = query_result['columns']
+    dtypes = tuple_fields_dtypes(query_result.data[0])
+    t = Table(names = fields, dtype = dtypes)
+    t.meta['comments'] = [str(query_result.data[0].__class__)]
+    t.meta['total'] = query_result['totalCount']
+
+    for rec in query_result.data:
+        t.add_row(rec)
+    return t
+
+def object_list_to_table(query_result):
     if not query_result.success or not query_result.data:
         return Table()
     fields, dtypes = fields_dtypes(query_result.data[0])
@@ -90,4 +119,4 @@ def to_table(query_result):
 
     for rec in query_result.data:
         t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
-    return t
+    return t    
