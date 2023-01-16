@@ -2,7 +2,7 @@ import os
 import unittest
 from astropy.io import fits
 
-from csst_dfs_api.msc.level1prc import Level1PrcApi
+from csst_dfs_api.mbi.level1prc import Level1PrcApi
 
 class MSCLevel1PrcTestCase(unittest.TestCase):
 

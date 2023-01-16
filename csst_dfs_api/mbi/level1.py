@@ -57,7 +57,7 @@ class Level1DataApi(object):
         return self.stub.update_proc_status(**kwargs)
 
     def update_qc1_status(self, **kwargs):
-        ''' update the status of QC0
+        ''' update the status of QC1
         
         :param kwargs: Parameter dictionary, key items support:
             id = [int],

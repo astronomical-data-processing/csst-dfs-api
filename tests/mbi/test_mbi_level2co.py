@@ -2,7 +2,7 @@ import os
 import unittest
 from astropy.io import fits
 
-from csst_dfs_api.msc.level2co import Level2CoApi
+from csst_dfs_api.mbi.level2co import Level2CoApi
 
 class MSCLevel2CoDataTestCase(unittest.TestCase):
 
