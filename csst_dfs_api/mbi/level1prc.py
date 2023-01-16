@@ -6,7 +6,7 @@ class Level1PrcApi(object):
     Level 0 Data Operation API
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
+        self.pymodule = Delegate().load(sub_module = "mbi")
         self.stub = getattr(self.pymodule, "Level1PrcApi")()
         
     def find(self, **kwargs):

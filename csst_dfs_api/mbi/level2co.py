@@ -6,7 +6,7 @@ class Level2CoApi(object):
     Level2 Merge Catalog Operation Class
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "msc")
+        self.pymodule = Delegate().load(sub_module = "mbi")
         self.stub = getattr(self.pymodule, "Level2CoApi")()
         
     def find(self, **kwargs):
