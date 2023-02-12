@@ -4,7 +4,7 @@ from astropy.io import fits
 
 from csst_dfs_api.mbi.level2co import Level2CoApi
 
-class MSCLevel2CoDataTestCase(unittest.TestCase):
+class MBILevel2CoDataTestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = Level2CoApi()

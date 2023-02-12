@@ -13,7 +13,7 @@ class FacilityBrickTestCase(unittest.TestCase):
         print('find:', recs)
 
     def test_get(self):
-        rec = self.api.get(id=17)
+        rec = self.api.get(id=1)
         print('get:', rec)
 
     def test_write(self):
@@ -26,4 +26,4 @@ class FacilityBrickTestCase(unittest.TestCase):
 
     def test_find_level1_data(self):
         rec = self.api.find_level1_data(brick_id=1, level1_id = 1, module = 'msc')
-        print('find_level1_data:', rec)          
+        print('find_level1_data:', rec) 

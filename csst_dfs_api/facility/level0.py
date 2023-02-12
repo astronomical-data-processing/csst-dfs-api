@@ -13,9 +13,10 @@ class Level0DataApi(object):
         ''' retrieve level0 records from database
 
         :param kwargs: Parameter dictionary, key items support:
-            obs_id: [str]
-            detector_no: [str]
-            obs_type: [str]
+            obs_id: [str],
+            detector_no: [str],
+            obs_type: [str],
+            filter: [str],
             obs_time : (start, end),
             qc0_status : [int],
             prc_status : [int],

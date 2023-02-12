@@ -61,7 +61,7 @@ class Level2SpectraApi(object):
 
     def write(self, **kwargs):
         ''' insert a level1 record into database
- 
+
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
             level1_id: [int]

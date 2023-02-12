@@ -37,8 +37,8 @@ class SLSResult1TestCase(unittest.TestCase):
             prc_params = "/opt/dddasd.params",
             prc_status = 3,
             prc_time = '2021-10-22 11:12:13',
-            filename = "MSC_MS_210525121500_100000001_09_raw",
-            file_path = "/opt/temp/csst/MSC_MS_210525121500_100000001_09_raw.fits",
+            filename = "CSST_MSC_MS_SCI_20270810142128_20270810142358_100000101_20_img_L1.fits",
+            file_path = "/opt/temp/csst/CSST_MSC_MS_SCI_20270810142128_20270810142358_100000101_20_img_L1.fits",
             pipeline_id = "P2",
             refs = {'dark': 1, 'bias': 2, 'flat': 3 })
         print('write:', rec)

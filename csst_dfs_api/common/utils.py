@@ -2,6 +2,8 @@ from datetime import datetime
 from astropy.table import Table
 import time
 
+from .delegate import Delegate
+
 def format_datetime(dt):
     return dt.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -13,7 +15,6 @@ def format_time_ms(float_time):
     data_head = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
     data_secs = (float_time - int(float_time)) * 1000
     return "%s.%03d" % (data_head, data_secs)
-
 
 def get_parameter(kwargs, key, default=None):
     """ Get a specified named value for this (calling) function
@@ -39,7 +40,6 @@ def to_int(s, default_value = 0):
         return int(s)
     except:
         return default_value
-
 
 def singleton(cls):
     _instance = {}
@@ -117,4 +117,8 @@ def object_list_to_table(query_result):
 
     for rec in query_result.data:
         t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
-    return t    
+    return t
+
+def get_nextId_by_prefix(prefix):
+    pymodule = Delegate().load(sub_module = "common.utils")
+    return getattr(pymodule, "get_nextId_by_prefix")(prefix)

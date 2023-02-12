@@ -93,7 +93,7 @@ class Level2DataApi(object):
 
     def write(self, **kwargs):
         ''' insert a level2 record into database
- 
+
         :param kwargs: Parameter dictionary, key items support:
             level1_id: [int]
             data_type : [str]

@@ -33,7 +33,7 @@ class SLSLevel2SpectraTestCase(unittest.TestCase):
             region = "[12,13,24,24]",
             prc_status = 3,
             prc_time = '2021-10-22 11:12:13',
-            filename = "MSC_MS_210525121500_100000001_09_raw",
-            file_path = "/opt/temp/csst/MSC_MS_210525121500_100000001_09_raw.fits",
+            filename = "MSC_MS_210525120000_100000000_20_cat.fits",
+            file_path = "/opt/temp/csst/msc_data/MSC_MS_210525120000_100000000_20_cat.fits",
             pipeline_id = "P2")
         print('write:', rec)

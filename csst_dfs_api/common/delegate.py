@@ -2,7 +2,6 @@ import os
 import importlib
 import logging
 
-
 from csst_dfs_commons.models.errors import *
 from .constants import *
 
@@ -12,9 +11,9 @@ API_MODULE_PREFIX = "csst_dfs_api_"
 
 class Delegate(object):
     def __init__(self):
-        self.mode = os.getenv("CSST_DFS_API_MODE",'local')
+        self.mode = os.getenv("CSST_DFS_API_MODE", 'cluster')
         self.check_env()
- 
+
     def check_env(self):
         if self.mode == MODE_LOCAL:
             self.local_path = os.getenv("CSST_LOCAL_FILE_ROOT")

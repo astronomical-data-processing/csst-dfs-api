@@ -4,7 +4,7 @@ from astropy.io import fits
 
 from csst_dfs_api.mbi.level1prc import Level1PrcApi
 
-class MSCLevel1PrcTestCase(unittest.TestCase):
+class MBILevel1PrcTestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = Level1PrcApi()

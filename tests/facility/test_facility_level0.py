@@ -13,7 +13,7 @@ class Level0DataTestCase(unittest.TestCase):
 
     def test_find_by_brick_ids(self):
         recs = self.api.find_by_brick_ids(brick_ids = [1,2,3,4])
-        print('find:', recs)
+        print('find_by_brick_ids:', recs)
 
     def test_get(self):
         rec = self.api.get(id = 3)
@@ -35,6 +35,7 @@ class Level0DataTestCase(unittest.TestCase):
             level0_id = '000001101',
             obs_id = '0000011',
             detector_no = "01",
+            filter = "u",
             obs_type = "sci",            
             obs_time = "2021-06-06 11:12:13",
             exp_time = 150,
