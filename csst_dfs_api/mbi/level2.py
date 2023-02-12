@@ -33,6 +33,7 @@ class Level2DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             obs_id: [str]
             detector_no: [str]
+            filter: [str]
             ra:  [float] in deg
             dec: [float] in deg
             radius:  [float] in deg
@@ -49,6 +50,7 @@ class Level2DataApi(object):
         :param kwargs: Parameter dictionary, key items support:
             obs_id: [str]
             detector_no: [str]
+            filter: [str]
             ra:  [float] in deg
             dec: [float] in deg
             radius:  [float] in deg
