@@ -1,8 +1,10 @@
+import os
 import unittest
+from astropy.io import fits
 
-from csst_dfs_api.ifs.level1prc import Level1PrcApi
+from csst_dfs_api.facility.level1prc import Level1PrcApi
 
-class IFSLevel1PrcTestCase(unittest.TestCase):
+class Level1PrcTestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = Level1PrcApi()

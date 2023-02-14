@@ -14,6 +14,7 @@ class Level0DataApi(object):
 
         :param kwargs: Parameter dictionary, key items support:
             obs_id: [str],
+            module_id: [str]
             detector_no: [str],
             obs_type: [str],
             filter: [str],

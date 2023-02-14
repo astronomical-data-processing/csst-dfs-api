@@ -6,7 +6,7 @@ class Level1DataApi(object):
     Level1 Data Operation Class
     """
     def __init__(self):
-        self.pymodule = Delegate().load(sub_module = "sls")
+        self.pymodule = Delegate().load(sub_module = "facility")
         self.stub = getattr(self.pymodule, "Level1DataApi")()
         
     def find(self, **kwargs):
@@ -14,6 +14,7 @@ class Level1DataApi(object):
 
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
+            module_id: [str]
             data_type: [str]
             create_time : (start, end),
             qc1_status : [int],
@@ -24,7 +25,7 @@ class Level1DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find(**kwargs)
-        
+
     def find_by_brick_ids(self, **kwargs):
         ''' retrieve level1 records by brick_ids like [1,2,3,4]
 
@@ -33,17 +34,6 @@ class Level1DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find_by_brick_ids(**kwargs)
-
-    def find_by_prc_status(self, **kwargs):
-        ''' retrieve level1 records from database
-
-        :param kwargs: Parameter dictionary, key items support:
-            prc_status : [int],
-            limit: limits returns the number of records,default 0:no-limit
-        
-        :returns: csst_dfs_common.models.Result
-        '''
-        return self.stub.find_by_prc_status(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
@@ -71,7 +61,7 @@ class Level1DataApi(object):
         ''' update the status of QC1
         
         :param kwargs: Parameter dictionary, key items support:
-            id = [int]
+            id = [int],
             status = [int]
         
         :returns: csst_dfs_common.models.Result
@@ -80,10 +70,11 @@ class Level1DataApi(object):
 
     def write(self, **kwargs):
         ''' insert a level1 record into database
-
+ 
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
             data_type : [str]
+            cor_sci_id : [int]
             prc_params : [str]
             filename : [str]
             file_path : [str]            

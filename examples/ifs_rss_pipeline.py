@@ -3,7 +3,7 @@ import logging
 from astropy.io import fits
 
 from csst_dfs_commons.logging import setup_logging
-from csst_dfs_api.ifs import Level0DataApi, CalMergeApi, Level1DataApi
+from csst_dfs_api.facility import Level0DataApi, Level1DataApi
 setup_logging()
 
 log = logging.getLogger('csst')
@@ -13,7 +13,6 @@ class RSS(object):
     def __init__(self, file_name):
         self.root_dir = os.getenv("CSST_LOCAL_FILE_ROOT", "/opt/temp/csst")
         self.level0Api = Level0DataApi()
-        self.calibrationApi = CalMergeApi()
         self.level1Api = Level1DataApi()
         
         try:
