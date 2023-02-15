@@ -17,7 +17,7 @@ class Level2SpectraApi(object):
             level1_id: [int]
             spectra_id: [str]
             create_time : (start, end),
-            qc1_status : [int],
+            qc2_status : [int],
             prc_status : [int],
             filename: [str]
             limit: limits returns the number of records,default 0:no-limit
@@ -48,8 +48,8 @@ class Level2SpectraApi(object):
         '''
         return self.stub.update_proc_status(**kwargs)
 
-    def update_qc1_status(self, **kwargs):
-        ''' update the status of QC1
+    def update_qc2_status(self, **kwargs):
+        ''' update the status of QC2
         
         :param kwargs: Parameter dictionary, key items support:
             id = [int],
@@ -57,10 +57,10 @@ class Level2SpectraApi(object):
         
         :returns: csst_dfs_common.models.Result
         '''        
-        return self.stub.update_qc1_status(**kwargs)    
+        return self.stub.update_qc2_status(**kwargs)    
 
     def write(self, **kwargs):
-        ''' insert a level1 record into database
+        ''' insert a level2 record into database
 
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]

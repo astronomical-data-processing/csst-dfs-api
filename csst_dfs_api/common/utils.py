@@ -41,6 +41,12 @@ def to_int(s, default_value = 0):
     except:
         return default_value
 
+def to_float(s, default_value = 0):
+    try:
+        return float(s)
+    except:
+        return default_value
+        
 def singleton(cls):
     _instance = {}
 
@@ -119,6 +125,6 @@ def object_list_to_table(query_result):
         t.add_row(tuple([rec.__getattribute__(k) for k in fields]))
     return t
 
-def get_nextId_by_prefix(prefix):
+def get_nextId_by_prefix(prefix: str):
     pymodule = Delegate().load(sub_module = "common.utils")
     return getattr(pymodule, "get_nextId_by_prefix")(prefix)
