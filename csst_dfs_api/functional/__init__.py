@@ -7,7 +7,8 @@ def find_observation(
             obs_time : tuple = (None, None),
             qc0_status : int = -1,
             prc_status : int = -1) -> Result:
-    return ObservationApi().find()   
+    kwarg = locals()
+    return ObservationApi().find(**kwarg)   
 
 def find_level0(obs_id: str = '',
             module_id: str = '',
@@ -23,4 +24,5 @@ def find_level0(obs_id: str = '',
             radius: float = None,
             object_name: str = None,
             version: str = None) -> Result:
-    return Level0DataApi().find()
+    kwarg = locals()
+    return Level0DataApi().find(**kwarg)
