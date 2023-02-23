@@ -20,6 +20,9 @@ class Level1DataApi(object):
             qc1_status : [int],
             prc_status : [int],
             filename: [str]
+            ra_cen: float = None,
+            dec_cen: float = None,
+            radius_cen: float = None,            
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
@@ -34,6 +37,17 @@ class Level1DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find_by_brick_ids(**kwargs)
+
+    def sls_find_by_qc1_status(self, **kwargs):
+        ''' retrieve level1 records from database
+
+        :param kwargs: Parameter dictionary, key items support:
+            qc1_status : [int],
+            limit: limits returns the number of records,default 1
+        
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.sls_find_by_qc1_status(**kwargs)
 
     def get(self, **kwargs):
         '''  fetch a record from database
