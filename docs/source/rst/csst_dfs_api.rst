@@ -10,10 +10,11 @@ Subpackages
    csst_dfs_api.common
    csst_dfs_api.cpic
    csst_dfs_api.facility
+   csst_dfs_api.functional
    csst_dfs_api.hstdm
    csst_dfs_api.ifs
+   csst_dfs_api.mbi
    csst_dfs_api.mci
-   csst_dfs_api.msc
    csst_dfs_api.sls
 
 Module contents

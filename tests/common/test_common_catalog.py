@@ -21,9 +21,10 @@ class CommonCatalogTestCase(unittest.TestCase):
             obstime = -1, 
             limit = 0
         )
-        # print(result)
-        dt = self.api.to_table(result)
-        dt.pprint()
+        print(result)
+        if result.success:
+            dt = self.api.to_table(result)
+            dt.pprint()
         # df = dt.to_pandas()
         # print(df.head())
         print('used:', time.time()-t)

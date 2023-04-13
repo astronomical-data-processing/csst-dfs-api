@@ -55,6 +55,7 @@ class Level2DataApi(object):
             dec: [float] in deg
             radius:  [float] in deg
             obs_time: (start, end)
+            limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
         '''

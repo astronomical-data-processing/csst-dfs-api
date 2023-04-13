@@ -1,2 +1,10 @@
 astropy>=4.0
-git+https://github.com/astronomical-data-processing/csst-dfs-commons.git
+grpcio>=1.28.1
+grpcio_tools>=1.28.1
+protobuf==3.9.0
+pandas>=1.2.4
+networkx>=2.4
+matplotlib>=3.4.1
+numpy>=1.20.1
+astropy_healpix==0.7
+DBUtils==1.3
