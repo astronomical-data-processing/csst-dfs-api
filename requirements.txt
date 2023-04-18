@@ -1,7 +1,7 @@
 astropy
-grpcio==1.28.1
-grpcio_tools==1.28.1
-protobuf==3.9.0
+grpcio==1.53.0
+grpcio_tools==1.53.0
+protobuf==4.22.3
 pandas
 networkx
 matplotlib
