@@ -22,7 +22,8 @@ class Level1DataApi(object):
             filename: [str]
             ra_cen: float = None,
             dec_cen: float = None,
-            radius_cen: float = None,            
+            radius_cen: float = None,    
+            detector_no: [str],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
