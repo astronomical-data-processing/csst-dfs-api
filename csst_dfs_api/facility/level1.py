@@ -25,6 +25,7 @@ class Level1DataApi(object):
             radius_cen: float = None,    
             pipeline_id: [str],
             detector_no: [str],
+            filter: [str],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
