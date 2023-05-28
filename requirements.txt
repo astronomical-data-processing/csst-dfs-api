@@ -7,4 +7,5 @@ networkx
 matplotlib
 numpy
 astropy_healpix
+healpy
 DBUtils==1.3
