@@ -1,2 +1,4 @@
-from csst_dfs_commons.logging import setup_logging
-setup_logging()
+# from csst_dfs_commons.logging import setup_logging
+
+# setup_logging()
+print("csst-dfs-api")
