@@ -31,6 +31,7 @@ class Level2DataApi(object):
         ''' retrieve level2 catalog
 
         :param kwargs: Parameter dictionary, key items support:
+            brick_ids: tuple of int, like (1,2,3)
             obs_id: [str]
             detector_no: [str]
             filter: [str]
@@ -38,6 +39,7 @@ class Level2DataApi(object):
             dec: [float] in deg
             radius:  [float] in deg
             obs_time: (start, end)
+            columns: tuple of str, like ('ra','dec','sky')
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
@@ -48,6 +50,7 @@ class Level2DataApi(object):
         ''' retrieve level2 catalog, return Level2Record
 
         :param kwargs: Parameter dictionary, key items support:
+            brick_ids: list[int]
             obs_id: [str]
             detector_no: [str]
             filter: [str]
@@ -60,6 +63,15 @@ class Level2DataApi(object):
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.catalog_query_file(**kwargs)  
+    
+    def find_existed_brick_ids(self, **kwargs):
+        '''  retrieve existed brick_ids in a single exposure catalog
+
+        :param kwargs: 
+        
+        :returns: csst_dfs_common.models.Result
+        '''
+        return self.stub.find_existed_brick_ids(**kwargs)    
 
     def get(self, **kwargs):
         '''  fetch a record from database
