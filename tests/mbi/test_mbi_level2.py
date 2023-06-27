@@ -15,6 +15,10 @@ class MBILevel2DataTestCase(unittest.TestCase):
             create_time = ("2022-06-15 11:12:13","2022-06-16 11:12:13"))
         print('find:', recs)
 
+    def test_find_existed_brick_ids(self):
+        recs = self.api.find_existed_brick_ids()
+        print('find_existed_brick_ids:', recs)        
+
     def test_catalog_query(self):
         result = self.api.catalog_query(
             obs_id = '100000133',

@@ -26,6 +26,7 @@ class Level1DataApi(object):
             pipeline_id: [str],
             detector_no: [str],
             filter: [str],
+            object_name: [str],
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
