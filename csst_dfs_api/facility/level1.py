@@ -13,20 +13,21 @@ class Level1DataApi(object):
         ''' retrieve level1 records from database
 
         :param kwargs: Parameter dictionary, key items support:
+            obs_id: [str]
             level0_id: [str]
             module_id: [str]
             data_type: [str]
-            create_time : (start, end),
-            qc1_status : [int],
-            prc_status : [int],
+            create_time : (start, end)
+            qc1_status : [int]
+            prc_status : [int]
             filename: [str]
-            ra_cen: float = None,
+            ra_cen: float = None
             dec_cen: float = None,
-            radius_cen: float = None,    
-            pipeline_id: [str],
-            detector_no: [str],
-            filter: [str],
-            object_name: [str],
+            radius_cen: float = None
+            pipeline_id: [str]
+            detector_no: [str]
+            filter: [str]
+            object_name: [str]
             limit: limits returns the number of records,default 0:no-limit
         
         :returns: csst_dfs_common.models.Result
