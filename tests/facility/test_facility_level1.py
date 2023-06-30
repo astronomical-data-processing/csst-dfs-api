@@ -29,9 +29,9 @@ class Level1DataTestCase(unittest.TestCase):
 
     def test_write(self):
         rec = self.api.write(
-            level0_id='000001201', 
-            data_type = "sci",
-            cor_sci_id = 1,
+            level0_id = '1000001201', 
+            data_type = "SCIE",
+            cor_sci_id = 0,
             prc_params = "/opt/dddasd.params",
             prc_status = 3,
             prc_time = '2021-10-22 11:12:13',

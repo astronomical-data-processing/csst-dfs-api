@@ -22,5 +22,6 @@ echo " 🛰  4️⃣ /5️⃣"
 pip install$user git+https://csst-tb.bao.ac.cn/code/csst-dfs/csst-dfs-api-cluster.git$version
 echo " 🛰  5️⃣ /5️⃣"
 pip install$user git+https://csst-tb.bao.ac.cn/code/csst-dfs/csst-dfs-api.git$version
+pip install -r https://csst-tb.bao.ac.cn/code/csst-dfs/csst-dfs-api/-/raw/master/requirements.txt
 echo "➡==============================================="
 echo "🇨🇳 🇨🇳 🇨🇳 🚀 🚀 🚀 Done!"
