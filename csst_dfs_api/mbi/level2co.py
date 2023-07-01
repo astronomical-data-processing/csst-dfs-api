@@ -74,7 +74,7 @@ class Level2CoApi(object):
 
     def write(self, **kwargs):
         ''' insert a level2 record after merge into database
- 
+
         :param kwargs: Parameter dictionary, key items support:
             data_type : [str]
             filename : [str]
