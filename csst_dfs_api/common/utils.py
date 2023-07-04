@@ -103,17 +103,17 @@ def tuple_fields_dtypes(rec: tuple):
     dtypes = tuple(dtypes)
     return dtypes
 
-def to_table(query_result):
-    if not query_result.success or not query_result.data:
-        return Table()
-    fields = query_result['columns']
-    dtypes = tuple_fields_dtypes(query_result.data[0])
-    t = Table(names = fields, dtype = dtypes, rows = query_result.data)
-    t.meta['columns'] = fields
-    t.meta['total'] = query_result['totalCount']
-    return t
+# def to_table(query_result):
+#     if not query_result.success or not query_result.data:
+#         return Table()
+#     fields = query_result['columns']
+#     dtypes = tuple_fields_dtypes(query_result.data[0])
+#     t = Table(names = fields, dtype = dtypes, rows = query_result.data)
+#     t.meta['columns'] = fields
+#     t.meta['total'] = query_result['totalCount']
+#     return t
 
-def to_table_v2(query_result):
+def to_table(query_result):
     if not query_result.success or not query_result.data:
         return Table()
     df = pd.DataFrame(data = query_result.data, columns = query_result['columns'])
