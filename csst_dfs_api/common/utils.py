@@ -1,6 +1,7 @@
 from datetime import datetime
 from astropy.table import Table
 import time
+import pandas as pd
 
 from .delegate import Delegate
 
@@ -78,11 +79,11 @@ def fields_dtypes(rec):
         elif f.type == float:
             dtypes.append('f8')        
         elif f.type == str:
-            dtypes.append('S2')
+            dtypes.append('U11')
         elif f.type == list:
             dtypes.append('(12,)f8')       
         else:
-            dtypes.append('S2')                
+            dtypes.append('U11')                
     dtypes = tuple(dtypes)
     return fields, dtypes
 
@@ -94,11 +95,11 @@ def tuple_fields_dtypes(rec: tuple):
         elif type(f) == float:
             dtypes.append('f8')
         elif type(f) == str:
-            dtypes.append('V')
+            dtypes.append('U11')
         elif type(f) == list:
             dtypes.append('(12,)f8')
         else:
-            dtypes.append('V')
+            dtypes.append('U11')
     dtypes = tuple(dtypes)
     return dtypes
 
@@ -110,8 +111,13 @@ def to_table(query_result):
     t = Table(names = fields, dtype = dtypes, rows = query_result.data)
     t.meta['columns'] = fields
     t.meta['total'] = query_result['totalCount']
-
     return t
+
+def to_table_v2(query_result):
+    if not query_result.success or not query_result.data:
+        return Table()
+    df = pd.DataFrame(data = query_result.data, columns = query_result['columns'])
+    return Table.from_pandas(df, index = False)
 
 def object_list_to_table(query_result):
     if not query_result.success or not query_result.data:
