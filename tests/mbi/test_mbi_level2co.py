@@ -1,6 +1,6 @@
 import unittest
 
-from csst_dfs_api.mbi.level2co import Level2CoApi
+from csst_dfs_api.mbi import Level2CoApi
 
 class MBILevel2CoDataTestCase(unittest.TestCase):
 

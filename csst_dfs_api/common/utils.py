@@ -92,13 +92,13 @@ def tuple_fields_dtypes(rec: tuple):
         if type(f) == int:
             dtypes.append('i8')
         elif type(f) == float:
-            dtypes.append('f8')        
+            dtypes.append('f8')
         elif type(f) == str:
-            dtypes.append('S2')
+            dtypes.append('V')
         elif type(f) == list:
-            dtypes.append('(12,)f8')       
+            dtypes.append('(12,)f8')
         else:
-            dtypes.append('S2')                
+            dtypes.append('V')
     dtypes = tuple(dtypes)
     return dtypes
 

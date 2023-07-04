@@ -82,7 +82,7 @@ class Level0DataApi(object):
 
     def write(self, **kwargs):
         ''' insert a level0 data record into database
- 
+
         :param kwargs: Parameter dictionary, key items support:
             obs_id = [str],
             detector_no = [str],
