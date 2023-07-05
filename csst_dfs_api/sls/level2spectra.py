@@ -15,7 +15,7 @@ class Level2SpectraApi(object):
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
             level1_id: [int]
-            spectra_id: [str]
+            file_type: [str]
             create_time : (start, end),
             qc2_status : [int],
             prc_status : [int],
@@ -65,8 +65,7 @@ class Level2SpectraApi(object):
         :param kwargs: Parameter dictionary, key items support:
             level0_id: [str]
             level1_id: [int]
-            spectra_id : [str]
-            region : [str]
+            file_type : [str]
             filename : [str]
             file_path : [str]            
             prc_status : [int]
