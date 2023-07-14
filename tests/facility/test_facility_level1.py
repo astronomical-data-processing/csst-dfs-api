@@ -15,6 +15,12 @@ class Level1DataTestCase(unittest.TestCase):
             create_time = ("2021-06-01 11:12:13","2021-06-08 11:12:13"))
         print('find:', recs)
 
+    def test_find_by_ids(self):
+        recs = self.api.find_by_ids(
+            ids=[1,2,3,4]
+        )
+        print('find_by_ids:', recs)
+
     def test_get(self):
         rec = self.api.get(id = 2)
         print('get:', rec)
