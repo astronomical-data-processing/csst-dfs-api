@@ -47,7 +47,7 @@ class Level1DataApi(object):
         ''' retrieve level1 records by internal level1 ids like [1,2,3,4]
 
         :param kwargs: Parameter dictionary, key items support:
-            brick_ids: [list]
+            ids: [list]
         :returns: csst_dfs_common.models.Result
         '''
         return self.stub.find_by_ids(**kwargs)
