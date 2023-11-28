@@ -32,14 +32,14 @@ class Level0DataTestCase(unittest.TestCase):
 
     def test_write(self):
         rec = self.api.write(
-            level0_id = '000001101',
-            obs_id = '0000011',
+            level0_id = '10000010101',
+            obs_id = '100000101',
             detector_no = "01",
             filter = "u",
             obs_type = "sci",            
             obs_time = "2021-06-06 11:12:13",
             exp_time = 150,
             detector_status_id = 3,
-            filename = "MSC_00001234",
-            file_path = "/opt/MSC_00001234.fits")
+            filename = "CSST_MSC_MS_SCI_20270810142128_20270810142358_100000101_01_L0_1.fits",
+            file_path = "/opt/temp/csst/CSST_MSC_MS_SCI_20270810142128_20270810142358_100000101_01_L0_1.fits")
         print('write:', rec)  
